@@ -4,7 +4,6 @@ function App() {
   return (
     <div className="App">
       <h3>This is Metamind site</h3>
-      <Registration />
     </div>
   );
 }
