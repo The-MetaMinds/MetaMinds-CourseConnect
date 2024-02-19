@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h3> This is MetaMind Site</h3>
+      <h3>This is Metamind site</h3>
     </div>
   );
 }
