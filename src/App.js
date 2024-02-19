@@ -9,7 +9,7 @@ function App() {
       <h3>Test</h3>
       <h3>Peters Test</h3>
       <h4>Discord Test 2</h4>
-      <h5>Edwards Test</h5>
+      <h5>Edward's Test</h5>
     </div>
   );
 }
