@@ -8,7 +8,7 @@ function App() {
       <h2> Gus JS </h2>
       <h3>Test</h3>
       <h3>Peters Test</h3>
-      <h4>Discord Test</h4>
+      <h4>Discord Test 2</h4>
     </div>
   );
 }
