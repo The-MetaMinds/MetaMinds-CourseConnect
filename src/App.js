@@ -6,6 +6,7 @@ function App() {
       <h3>This is Metamind site</h3>
       <Registration />
       <h3>Test</h3>
+      <h3>Peters Test</h3>
     </div>
   );
 }
