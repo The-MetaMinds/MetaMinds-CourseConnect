@@ -5,6 +5,7 @@ function App() {
     <div className="App">
       <h3>This is Metamind site</h3>
       <Registration />
+      <h2> Gus JS </h2>
     </div>
   );
 }
