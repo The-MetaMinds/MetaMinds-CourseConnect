@@ -5,8 +5,9 @@ function App() {
     <div className="App">
       <h3>This is Metamind site</h3>
       <Registration />
+      <h3>Test</h3>
     </div>
   );
 }
-
+//This is a test
 export default App;
