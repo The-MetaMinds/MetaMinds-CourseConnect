@@ -7,7 +7,7 @@
     height: 300px; /* change later*/
     margin: 0 auto; /* Center horizontally */
     border: 2px black solid;
-    background: red;
+    background: rgb(0, 242, 255);
 }
 
 .registration-header {
