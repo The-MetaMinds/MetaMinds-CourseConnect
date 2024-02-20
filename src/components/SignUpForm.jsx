@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SignUpForm.css'
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
+    <div className='sign-up'>
       <form onSubmit={handleSubmit}>
         <div>
           <input

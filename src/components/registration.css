@@ -4,16 +4,17 @@
     flex-direction: column;
     width: 80%;
     max-width: 600px; /* Set maximum width */
-    height: 300px; /* change later*/
     margin: 0 auto; /* Center horizontally */
-    border: 2px black solid;
+    border: 2px red solid;
     background: red;
 }
 
 .registration-header {
     color: black;
-    margin: 10px 0; /* Adjust vertical margin */
-    text-align: center; /* Center the text */
+    margin: 0.2rem 0; /* Adjust vertical margin */
+    text-align: left; /* Center the text */
+    font-weight:bolder;
+    padding: 0 1rem;
 }
 
 .registration-content {
