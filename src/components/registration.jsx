@@ -1,11 +1,13 @@
 import React from 'react'
 import './registration.css';
+import SignUpForm from './SignUpForm';
+
 
 const Registration = () => {
   return (
-    <div className='registration'>
-        <div className="registration-title"><h3>Registration</h3></div>
-        <div className='register'></div>
+    <div className='registration-container'>
+        <div className="registration-header"><h3>Registration</h3></div>
+        <div className='registration-content'><SignUpForm /></div>
     </div>
   )
 }

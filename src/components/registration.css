@@ -1,15 +1,33 @@
-.registration{
+/* registration.css */
+.registration-container {
+    display: flex;
+    flex-direction: column;
     width: 80%;
-    height: 200px;
-    border: 2px red solid;
+    max-width: 600px; /* Set maximum width */
+    height: 300px; /* change later*/
+    margin: 0 auto; /* Center horizontally */
+    border: 2px black solid;
     background: red;
 }
 
-.registration-title{
+.registration-header {
     color: black;
-    margin: 10px;
+    margin: 10px 0; /* Adjust vertical margin */
+    text-align: center; /* Center the text */
 }
 
-.register{
-    background: white
+.registration-content {
+    flex: 1;
+    background: white;
+    width: 100%;
+    border-radius:  20px 20px 0 0;
+    overflow: scroll; /* to show scroll bar */
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .registration-container {
+        width: 90%; /* Adjust width for smaller screens */
+        padding: 10px; /* Adjust padding */
+    }
 }
