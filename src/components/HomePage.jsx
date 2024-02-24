@@ -7,6 +7,10 @@ const HomePage = () => {
       
       <div>HomePage</div>
 
+
+
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+
       {/* Mathmatics Button */}
       <br></br> <br></br>
       <button style={{ fontSize: '29px', backgroundColor: 'rgb(72, 174, 248)', color: 'black' }}>Mathmatics</button>
@@ -18,6 +22,10 @@ const HomePage = () => {
       {/* History Button */}
       <br></br> <br></br>
       <button style={{ fontSize: '29px', backgroundColor: 'rgb(220, 252, 130)', color: 'black' }}>History</button>
+
+      </div>
+
+
 
       {/* Criminal Justice Button */}
       <br></br> <br></br>
