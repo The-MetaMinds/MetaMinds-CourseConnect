@@ -21,7 +21,7 @@ const HomePage = () => {
 
       {/* History Button */}
       <button style={{ fontSize: '40px', backgroundColor: 'rgb(220, 252, 130)', color: 'black', width: '210px' , height: '100px' , marginRight: '30px' }}>History</button>
-
+      
       </div>
       </div>
 
@@ -32,6 +32,9 @@ const HomePage = () => {
 
       {/* Criminal Justice Button */}
       <button style={{ fontSize: '30px', backgroundColor: 'rgb(218, 75, 221)', color: 'black', width: '210px' , height: '100px' , marginRight: '30px' }}>Criminal Justice</button>
+
+      {/* Medical Button */}
+      <button style={{ fontSize: '40px', backgroundColor: 'rgb(253, 46, 46)', color: 'black', width: '210px' , height: '100px' , marginRight: '30px' }}>Medical</button>
 
       </div>
       </div>
