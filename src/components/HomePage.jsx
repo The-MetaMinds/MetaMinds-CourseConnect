@@ -8,15 +8,14 @@ const HomePage = () => {
       <div>HomePage</div>
 
       {/* Mathmatics Button */}
-      <br></br>
+      <br></br> <br></br>
       <button style={{ fontSize: '22px', backgroundColor: 'blue', color: 'black' }}>Mathmatics</button>
 
       {/* Computer Science Button */}
-      <br></br>
+      <br></br> <br></br>
       <button style={{ fontSize: '22px', backgroundColor: 'grey', color: 'black' }}>Computer Science</button>
-      
-      <input type="text" placeholder="Type your response here" />
 
+      <br></br>
       <button>Submit</button>
 
     </div>
