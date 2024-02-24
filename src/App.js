@@ -15,12 +15,7 @@ function App() {
       <h5>Edward's Test</h5>
       <h5> Kenneth slay </h5>
       <h5>Mayra's</h5>
-
-      <br>
-      <HomePage /> 
-      </br>
-
-
+      
     </div>
   );
 }
