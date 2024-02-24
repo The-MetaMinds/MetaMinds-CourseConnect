@@ -1,8 +1,9 @@
 import './App.css';
 import Registration from './components/registration';
 
-
+{/*
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; // Import BrowserRouter, Route, and Link
+*/}
 
 import HomePage from './components/HomePage';
 
@@ -24,8 +25,9 @@ function App() {
         <button>Go to HomePage</button>
       </Link>
         
-      {/* Route for HomePage component */}
-      <Route path="/homepage" component={HomePage} />
+      {/* Route for HomePage component 
+      <Route path="/homepage" component={HomePage} 
+      */}
 
 
     </div>
