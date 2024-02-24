@@ -13,7 +13,7 @@ const HomePage = () => {
 
       {/* Computer Science Button */}
       <br></br>
-      <button style={{ fontSize: '22px', backgroundColor: 'grey', color: 'black' }}>Mathmatics</button>
+      <button style={{ fontSize: '22px', backgroundColor: 'grey', color: 'black' }}>Computer Science</button>
       
       <input type="text" placeholder="Type your response here" />
 
