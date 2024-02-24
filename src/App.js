@@ -16,6 +16,7 @@ function App() {
       <h5> Kenneth slay </h5>
       <h5>Mayra's</h5>
 
+      <HomePage />
 
     </div>
   );
