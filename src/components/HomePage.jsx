@@ -14,13 +14,13 @@ const HomePage = () => {
       <div style={{ display: 'flex' }}>
 
       {/* Mathmatics Button */}
-      <button style={{ fontSize: '40px', backgroundColor: 'rgb(72, 174, 248)', color: 'black', marginRight: '30px' }}>Mathmatics</button>
+      <button style={{ fontSize: '32px', backgroundColor: 'rgb(72, 174, 248)', color: 'black', width: '180px' , marginRight: '30px' }}>Mathmatics</button>
 
       {/* Computer Science Button */}
-      <button style={{ fontSize: '40px', backgroundColor: 'rgb(209, 203, 181)', color: 'black', marginRight: '30px' }}>Computer Science</button>
+      <button style={{ fontSize: '29px', backgroundColor: 'rgb(209, 203, 181)', color: 'black', width: '180px' , marginRight: '30px' }}>Computer Science</button>
 
       {/* History Button */}
-      <button style={{ fontSize: '40px', backgroundColor: 'rgb(220, 252, 130)', color: 'black', marginRight: '30px' }}>History</button>
+      <button style={{ fontSize: '40px', backgroundColor: 'rgb(220, 252, 130)', color: 'black', width: '180px' , marginRight: '30px' }}>History</button>
 
       </div>
       </div>
@@ -31,7 +31,7 @@ const HomePage = () => {
       <div style={{ display: 'flex' }}>
 
       {/* Criminal Justice Button */}
-      <button style={{ fontSize: '40px', backgroundColor: 'rgb(218, 75, 221)', color: 'black', marginRight: '30px' }}>Criminal Justice</button>
+      <button style={{ fontSize: '30px', backgroundColor: 'rgb(218, 75, 221)', color: 'black', width: '180px' , marginRight: '30px' }}>Criminal Justice</button>
 
       </div>
       </div>
