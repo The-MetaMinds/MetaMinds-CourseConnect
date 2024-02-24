@@ -14,7 +14,7 @@ const HomePage = () => {
       <div style={{ display: 'flex' }}>
 
       {/* Mathmatics Button */}
-      <button style={{ fontSize: '32px', backgroundColor: 'rgb(72, 174, 248)', color: 'black', width: '210px' , height: '100px' , marginRight: '30px' }}>Mathmatics</button>
+      <button style={{ fontSize: '32px', backgroundColor: 'rgb(72, 174, 248)', color: 'black', width: '210px' , height: '100px' , marginRight: '30px' }}>Mathematics</button>
 
       {/* Computer Science Button */}
       <button style={{ fontSize: '29px', backgroundColor: 'rgb(209, 203, 181)', color: 'black', width: '210px' , height: '100px' , marginRight: '30px' }}>Computer Science</button>
