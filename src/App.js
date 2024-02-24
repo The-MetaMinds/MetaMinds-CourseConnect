@@ -1,7 +1,6 @@
 import './App.css';
 import Registration from './components/registration';
 
-
 import HomePage from './components/HomePage';
 
 function App() {
