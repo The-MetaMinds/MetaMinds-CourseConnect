@@ -1,6 +1,8 @@
 import './App.css';
 import Registration from './components/registration';
 
+import HomePage from './components/HomePage';
+
 function App() {
   return (
     <div className="App">
@@ -11,9 +13,14 @@ function App() {
       <h3>Peter's Test</h3>
       <h4>Discord Test 2</h4>
       <h5>Edward's Test</h5>
-      <h4>Gus js 2</h4>
       <h5> Kenneth slay </h5>
       <h5>Mayra's</h5>
+
+      <br>
+      <HomePage /> 
+      </br>
+
+
     </div>
   );
 }
