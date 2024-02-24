@@ -9,11 +9,20 @@ const HomePage = () => {
 
       {/* Mathmatics Button */}
       <br></br> <br></br>
-      <button style={{ fontSize: '22px', backgroundColor: 'blue', color: 'black' }}>Mathmatics</button>
+      <button style={{ fontSize: '29px', backgroundColor: 'rgb(72, 174, 248)', color: 'black' }}>Mathmatics</button>
 
       {/* Computer Science Button */}
       <br></br> <br></br>
-      <button style={{ fontSize: '22px', backgroundColor: 'rgb(209, 203, 181)', color: 'black' }}>Computer Science</button>
+      <button style={{ fontSize: '29px', backgroundColor: 'rgb(209, 203, 181)', color: 'black' }}>Computer Science</button>
+
+      {/* History Button */}
+      <br></br> <br></br>
+      <button style={{ fontSize: '29px', backgroundColor: 'rgb(220, 252, 130)', color: 'black' }}>History</button>
+
+      {/* Criminal Justice Button */}
+      <br></br> <br></br>
+      <button style={{ fontSize: '29px', backgroundColor: 'rgb(218, 75, 221)', color: 'black' }}>Criminal Justice</button>
+
 
       <br></br>
       <button>Submit</button>
