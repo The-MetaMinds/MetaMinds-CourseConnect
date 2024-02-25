@@ -11,6 +11,7 @@ function App() {
      
 
       <HomePage />
+      {/* Testing^ , will remove once finished */}
 
     </div>
   );
