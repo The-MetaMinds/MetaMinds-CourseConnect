@@ -3,6 +3,7 @@ import Registration from './components/registration';
 
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
+import ClassPage from './components/ClassPage';
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
       {/*<HomePage />*/}
       {/* Testing^ , will remove once finished */}
 
-      <ProfilePage />
-      {/* Testing^ , will remove once finished */}
+      //<ProfilePage />
+      // {/* Testing^ , will remove once finished */}
+
+       <ClassPage/>
     </div>
   );
 }
