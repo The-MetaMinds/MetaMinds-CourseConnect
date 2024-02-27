@@ -1,0 +1,59 @@
+.ClassPage {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #ff0000; /* Red */
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar button {
+  color: white;
+  background-color: #ff3333; /* Lighter red */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.sidebar {
+  background-color: #0066ff; /* Blue */
+  width: 200px;
+  padding: 10px;
+  float: left;
+}
+
+.sidebar button {
+  color: white;
+  background-color: #0099ff; /* Lighter blue */
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.main-content {
+  margin-left: 220px; /* Same as sidebar width plus some extra for margin */
+  padding: 10px;
+}
+
+.question {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.question h3 {
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.question button {
+  background-color: #ff3333; /* Lighter red */
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+}
