@@ -18,6 +18,18 @@
     margin-bottom: 20px;
 }
 
+/* Profile picture styles */
+.profile-picture {
+    text-align: center; /* Center the image */
+    margin-bottom: 20px; /* Add some space below the image */
+}
+
+.profile-picture img {
+    width: 200px; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make it circular */
+}
+
 /* Info styles */
 .profile-info {
     display: flex;
@@ -33,6 +45,7 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold; /* Make label text bold */
+    text-align: left;
 }
 
 .info-item input,
@@ -63,6 +76,7 @@
     border: 1px solid #c41e3a; /* Rutgers red */
     border-radius: 5px;
     padding: 10px;
+    text-align: left;
 }
 
 .profile-info ul {
