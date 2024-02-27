@@ -14,8 +14,10 @@ function App() {
       {/*<HomePage />*/}
       {/* Testing^ , will remove once finished */}
 
-      <ProfilePage />
-      {/* Testing^ , will remove once finished */}
+      // <ProfilePage />
+      // {/* Testing^ , will remove once finished */}
+
+       <ClassPage/>
     </div>
   );
 }
