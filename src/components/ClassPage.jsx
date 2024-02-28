@@ -1,14 +1,7 @@
 import React from 'react';
 import './ClassPage.css'; // Make sure to create an App.css file for your styles
 
-// Components
-const Navbar = () => (
-  <div className="navbar">
-    <button>Home</button>
-    <button>Profile</button>
-    <button>Logout</button>
-  </div>
-);
+//components
 
 const Sidebar = () => (
   <div className="sidebar">
@@ -43,7 +36,6 @@ const MainContent = () => (
 const ClassPage = () => {
   return (
     <div className="classpage">
-      <Navbar />
       <div className="container">
         <Sidebar />
         <MainContent />

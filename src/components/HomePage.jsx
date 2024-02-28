@@ -1,14 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const HomePage = () => {
   return (
     <div>
-      <div style={{ backgroundColor: 'red', height: '60px', width: '100%', position: 'fixed', top: 0 }}>Red Box Header</div>
-      
-      <div>HomePage</div>
-
-
-
       <br/>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ display: 'flex' }}>
