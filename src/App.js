@@ -6,6 +6,7 @@ import UserTest from './components/UserTest';
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import ClassPage from './components/ClassPage';
+import LoginPage from './components/LoginPage';
 
 function App() {
   return (
@@ -15,13 +16,14 @@ function App() {
       <div className="users">
         <UserTest/>
       </div>
-  */}
-            {/*<Registration /> */}
+      {/*<Registration /> */}
       {/*<HomePage />*/}
       {/* Testing^ , will remove once finished */}
       {/*<ProfilePage />*/}
       {/* Testing^ , will remove once finished */}
       <ClassPage/>
+      {/* <LoginPage/> */}
+
     </div>
   );
 }

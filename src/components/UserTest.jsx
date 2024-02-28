@@ -1,4 +1,4 @@
-import './registration.css'; 
+import './registration.css';
 import React, { useState } from 'react';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from './firebase';
