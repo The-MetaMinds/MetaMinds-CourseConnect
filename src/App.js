@@ -1,12 +1,7 @@
 // App.js
 import './App.css';
 import React from 'react';
-import Registration from './components/registration';
-import UserTest from './components/UserTest';
-import HomePage from './components/HomePage';
-import ProfilePage from './components/ProfilePage';
 import ClassPage from './components/ClassPage';
-import LoginPage from './components/LoginPage';
 
 function App() {
   return (
