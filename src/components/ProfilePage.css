@@ -1,6 +1,3 @@
-/* ProfilePage.css */
-
-/* Container styles */
 .profile-container {
     max-width: 600px;
     margin: 0 auto;
@@ -10,7 +7,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading styles */
 .profile-heading {
     font-size: 28px;
     font-weight: bold;
@@ -18,34 +14,32 @@
     margin-bottom: 20px;
 }
 
-/* Profile picture styles */
 .profile-picture {
     text-align: center; /* Center the image */
     margin-bottom: 20px; /* Add some space below the image */
 }
 
 .profile-picture img {
-    width: 200px; /* Adjust the width of the image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Make it circular */
+    width: 200px; 
+    height: auto; 
+    border-radius: 50%;
 }
 
-/* Info styles */
 .profile-info {
-    padding: 20px; /* Added padding to the entire profile info section */
+    padding: 20px; 
 }
 
 .info-item {
     margin-bottom: 20px;
-    border: 1px solid #c41e3a; /* Rutgers red border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px; /* Added padding to individual info items */
+    border: 1px solid #c41e3a; 
+    border-radius: 5px; 
+    padding: 10px; 
 }
 
 .info-item label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold; /* Make label text bold */
+    font-weight: bold; 
     text-align: left;
 }
 
@@ -53,9 +47,9 @@
 .info-item input[type="email"],
 .info-item input[type="password"],
 .info-item textarea {
-    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+    width: calc(100% - 22px); 
     padding: 5px;
-    border: none; /* Remove border from input fields */
+    border: none; 
     border-radius: 3px;
     box-sizing: border-box;
 }
@@ -64,27 +58,24 @@
 .info-item input[type="email"]:read-only,
 .info-item input[type="password"]:read-only,
 .info-item textarea:read-only {
-    background-color: #f5f5f5; /* Light gray background for read-only fields */
+    background-color: #f5f5f5; 
 }
 
-/* List styles */
 .profile-info ul {
     margin: 0;
     padding: 0;
-    list-style-type: none; /* Remove default bullet points */
+    list-style-type: none;
 }
 
 .profile-info li {
     margin-bottom: 5px;
 }
 
-/* Strong styles */
 .profile-info p strong {
     font-weight: bold;
     color: #c41e3a; /* Rutgers red */
 }
 
-/* Edit button styles */
 .edit-button {
     background-color: #c41e3a; /* Rutgers red */
     color: white;
