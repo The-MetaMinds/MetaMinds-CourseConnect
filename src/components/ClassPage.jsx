@@ -44,7 +44,7 @@ const ClassPage = () => {
   // Call the function to fetch departments when the component mounts
   useEffect(() => {
     fetchcoursesFromBackend();
-  },);
+  },[departmentID]);
 
   return (
     <div className="department-container">
