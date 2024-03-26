@@ -26,23 +26,24 @@ const ClassPage = () => {
   }
 ];
 
-  const fetchcoursesFromBackend = async () => {
-    try {
-      const response = await fetch(`https://courseconnect-delta.vercel.app/api/departments/${departmentID}/classes`);
-      if (!response.ok) {
-        console.log("failed")
-        throw new Error('Failed to fetch departments');
-      }
-      const data = await response.json();
-      console.log(data)
-      setcourses(data); // Assuming the response data is an array of departments
-    } catch (error) {
-      console.error('Error fetching departments:', error);
-    }
-  };
+  
 
   // Call the function to fetch departments when the component mounts
   useEffect(() => {
+    const fetchcoursesFromBackend = async () => {
+      try {
+        const response = await fetch(`https://courseconnect-delta.vercel.app/api/departments/${departmentID}/classes`);
+        if (!response.ok) {
+          console.log("failed")
+          throw new Error('Failed to fetch departments');
+        }
+        const data = await response.json();
+        console.log(data)
+        setcourses(data); // Assuming the response data is an array of departments
+      } catch (error) {
+        console.error('Error fetching departments:', error);
+      }
+    };
     fetchcoursesFromBackend();
   },[departmentID]);
 
