@@ -1,42 +1,28 @@
-.classpage {
-  font-family: Arial, sans-serif;
+.department-container {
+  display: grid;
+  grid-template-rows: auto; /* One row */
+  grid-template-columns: 20fr 80fr; /* Two columns, first column takes up 30%, second column takes up 70% */
+  grid-template-areas: "sidebar main";
 }
 
-.navbar {
-  background-color: #ff0000; /* Red */
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
+.side-bar {
+  grid-area: sidebar; /* Assign sidebar to its grid area */
+  background-color: #f0f0f0; /* Light gray background */
 }
 
-.navbar button {
-  color: white;
-  background-color: #ff3333; /* Lighter red */
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+.main {
+  grid-area: main; /* Assign main content to its grid area */
+  background-color: #e0e0e0; /* Light gray background */
 }
 
-.sidebar {
-  background-color: #0066ff; /* Blue */
-  width: 200px;
-  padding: 10px;
-  float: left;
+/* Additional styling for lists */
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.sidebar button {
-  color: white;
-  background-color: #0099ff; /* Lighter blue */
-  width: 100%;
-  padding: 10px;
-  border: none;
-  margin-bottom: 5px;
-  cursor: pointer;
-}
-
-.main-content {
-  margin-left: 220px; /* Same as sidebar width plus some extra for margin */
-  padding: 10px;
+li {
+  margin: 5px 0;
 }
 
 .question {
@@ -55,5 +41,15 @@
   color: white;
   border: none;
   padding: 5px 15px;
+  cursor: pointer;
+}
+
+.side-bar li {
+  color: white;
+  background-color: #b4312c; /* kind of red*/
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-bottom: 5px;
   cursor: pointer;
 }
