@@ -28,7 +28,8 @@ const ClassPage = () => {
 
   const fetchcoursesFromBackend = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/departments/${departmentID}/classes`);
+      
+      const response = await fetch(`https://courseconnect-delta.vercel.app/api/departments/${departmentID}/classes`);
       if (!response.ok) {
         console.log("failed")
         throw new Error('Failed to fetch departments');
