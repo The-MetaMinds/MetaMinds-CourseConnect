@@ -13,10 +13,15 @@
     font-size: 24px;
     background-color: red;
     color: black;
-    width: 200px;
+    width: 190px;
     height: 100px;
     margin-right: 20px;
     margin-bottom: 20px;
+    transition: width 0.3s, height 0.3s; /* Smooth transition animation */
+  }
+  .department-button:hover {
+    width: 210px; /* Increase width on hover */
+    height: 110px; /* Increase height on hover */
   }
   
   .submit-button {
