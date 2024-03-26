@@ -18,7 +18,7 @@ const ClassPage = () => {
   // Static data for courses and posts
   const [courses, setcourses] = useState([]);
   //const courses = ['Course 1', 'Course 2', 'Course 3'];
-  const posts = [{title:"Calc 1 help Please! Derivatives?",
+  const posts = [{title:"Calc 1 help Please! Integrals?",
   content: " I am taking calc 1, so far my professor is blah blah y j dffr dff dfrgmv frphmq fjkrvor kjdv dfjg...."},
   {
     title:"College Algebra: I don't understand variables",
