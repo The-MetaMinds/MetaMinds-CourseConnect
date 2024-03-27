@@ -21,7 +21,6 @@ const Navbar = () => {
             <li><Link to="/class">Class</Link></li>
             <li><Link to="/registration">Registration</Link></li>
             <li><Link to="/login">Login</Link></li>
-            <li><Link to="/ClassPageTest">ClassPageTest</Link></li>
           </ul>
         </div>
         <button className="menu-toggle" onClick={toggleMenu}>
