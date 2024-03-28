@@ -1,33 +1,38 @@
 /* registration.css */
+
 .registration-container {
     display: flex;
     flex-direction: column;
     width: 80%;
     max-width: 600px; /* Set maximum width */
     margin: 0 auto; /* Center horizontally */
-    border: 2px red solid;
-    background: rgb(255, 0, 0);
-}
-
-.registration-header {
+    border: 2px solid red; /* Changed border style */
+    background-color: rgb(255, 0, 0); /* Changed background color */
+  }
+  
+  .registration-header {
     color: black;
-    margin: 0.2rem 0; /* Adjust vertical margin */
-    text-align: left; /* Center the text */
-    font-weight:bolder;
-    padding: 0 1rem;
-}
-
-.registration-content {
+    margin: 0.5rem 0; /* Adjusted vertical margin */
+    text-align: center; /* Centered the text */
+    font-weight: bold; /* Corrected typo in font-weight */
+    padding: 1rem; /* Increased padding */
+    font-size: 25px; /* Increased font size */
+    border-radius: 20px 20px 0 0; /* Rounded corners for header */
+    text-decoration: underline;
+  }
+  
+  .registration-content {
     flex: 1;
-    background: white;
+    background-color: white; /* Changed background color */
     width: 100%;
-    border-radius:  20px 20px 0 0;
-}
-
-/* Media Query for responsiveness */
-@media (max-width: 768px) {
+    border-radius: 20px 20px 0 0; /* Adjusted border-radius */
+  }
+  
+  /* Media Query for responsiveness */
+  @media (max-width: 768px) {
     .registration-container {
-        width: 90%; /* Adjust width for smaller screens */
-        padding: 10px; /* Adjust padding */
+      width: 90%; /* Adjusted width for smaller screens */
+      padding: 10px; /* Adjusted padding */
     }
-}
+  }
+  
