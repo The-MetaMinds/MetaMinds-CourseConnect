@@ -6,6 +6,7 @@ import LoginPage from "../components/LoginPage";
 import ProfilePage from "../components/ProfilePage";
 import Layout from "./Layout";
 import HomePage from "../components/HomePage";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -15,12 +16,18 @@ const router = createBrowserRouter([
         children: [
             {index : true, element : <HomePage />},
             {path : 'registration', element :  <Registration />},
-            {path : 'class', element : <ClassPage />},
             {path : 'login', element : <LoginPage />},
-            {path : 'profile', element : <ProfilePage />},
-            {path : 'classpage/:departmentID', element : <ClassPage/>}
         ]
     },
+    {
+        element : <PrivateRoute />,
+        children :[
+            {path : 'class', element : <ClassPage />},
+            {path : 'profile', element : <ProfilePage />},
+            {path : 'classpage/:departmentID', element : <ClassPage/>}
+
+        ]
+    }
     
 ]);
 

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
+
+//import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   // Define state for the list of departments
@@ -30,12 +33,16 @@ const HomePage = () => {
   return (
 
     <div className="homepage-container">
+      
       {/* Render the list of departments dynamically */}
       <div className="departments-container">
         {departments.map((course, index) => (
-          <Link to={`/classpage/${course.id}`}><button key={index} className="department-button">{course.data.name}</button></Link>
+          <Link to={`/classpage/${course.id}`} key={index}>
+            <button className="department-button">{course.data.name}</button>
+          </Link>
         ))}
       </div>
+  
     </div>
     
   );

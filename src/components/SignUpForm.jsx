@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './SignUpForm.css';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -14,6 +18,8 @@ const SignUpForm = () => {
     course: '', // New state for the course input
     coursesCompleted: []
   });
+
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,11 +40,43 @@ const SignUpForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log(formData);
+    try {
+      const response = await axios.post('https://courseconnect-delta.vercel.app/api/users', formData);
+  
+      //remove below line cos it leading to breach
+      console.log('User registered successfully:', response.data);
+      // Optionally, you can reset the form after successful submission
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      });
+
+      setErrorMessage('');
+
+      navigate('/login')
+    } catch (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // Extract error message from the response data
+        console.error('Error registering user:', error.response.data);
+
+        setErrorMessage(error.response.data)
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error('Error registering user: No response received');
+      } else {
+        // Something happened in setting up the request that triggered an error
+        console.error('Error registering user:', error.message);
+      }
+    }
   };
+
 
   return (
     <div className='sign-up'>
@@ -47,30 +85,30 @@ const SignUpForm = () => {
           <img src="defaultProfilePic.jpg" alt="Default Profile" />
         </div>
         <div className="form-group">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstname">First Name:</label>
           <input
             type="text"
-            id="firstName"
-            name="firstName"
+            id="firstname"
+            name="firstname"
             placeholder="First Name"
-            value={formData.firstName}
+            value={formData.firstname}
             onChange={handleChange}
-            required
+            required 
           />
         </div>
-        <div className="form-group">
+        <div className="form-group" >
           <label htmlFor="lastName">Last Name:</label>
           <input
             type="text"
             id="lastName"
-            name="lastName"
+            name="lastname"
             placeholder="Last Name"
-            value={formData.lastName}
+            value={formData.lastname}
             onChange={handleChange}
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group" style={{ marginBottom: errorMessage ? '0' : '20px' }}>
           <label htmlFor="email">Rutger's Email:</label>
           <input
             type="email"
@@ -82,7 +120,9 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div className="form-group">
+        {errorMessage && <p style={{ color: 'red', marginTop: 0}}>{errorMessage}</p>}
+
+        <div className="form-group" >
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -94,7 +134,7 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group" style={{ marginBottom: (formData.confirmPassword !== '' && formData.password !== formData.confirmPassword)  ? '0' : '20px' }}>
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
             type="password"
@@ -106,6 +146,7 @@ const SignUpForm = () => {
             required
           />
         </div>
+        {formData.confirmPassword !== '' && formData.password !== formData.confirmPassword && <p style={{ color: 'red', paddingTop: 0}}>password don't match</p>}
         <div className="form-group">
           <label htmlFor="major">Major:</label>
           <input
