@@ -46,9 +46,11 @@ const SignUpForm = () => {
         <div className="profile-picture">
           <img src="defaultProfilePic.jpg" alt="Default Profile" />
         </div>
-        <div>
+        <div className="form-group">
+          <label htmlFor="firstName">First Name:</label>
           <input
             type="text"
+            id="firstName"
             name="firstName"
             placeholder="First Name"
             value={formData.firstName}
@@ -56,9 +58,11 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name:</label>
           <input
             type="text"
+            id="lastName"
             name="lastName"
             placeholder="Last Name"
             value={formData.lastName}
@@ -66,9 +70,11 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
+          <label htmlFor="email">Rutger's Email:</label>
           <input
             type="email"
+            id="email"
             name="email"
             placeholder="Email"
             value={formData.email}
@@ -76,9 +82,11 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
+            id="password"
             name="password"
             placeholder="Password"
             value={formData.password}
@@ -86,9 +94,11 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
+          <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
             type="password"
+            id="confirmPassword"
             name="confirmPassword"
             placeholder="Confirm Password"
             value={formData.confirmPassword}
@@ -96,9 +106,11 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
+          <label htmlFor="major">Major:</label>
           <input
             type="text"
+            id="major"
             name="major"
             placeholder="Major"
             value={formData.major}
@@ -106,7 +118,7 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="course">Course Completed:</label>
           <input
             type="text"
@@ -121,8 +133,8 @@ const SignUpForm = () => {
           )}
         </div>
         {formData.coursesCompleted.length > 0 && (
-          <div>
-            <p>Courses Completed:</p>
+          <div className="form-group">
+            <label>Courses Completed:</label>
             <ul>
               {formData.coursesCompleted.map((course, index) => (
                 <li key={index}>{course}</li>
@@ -130,9 +142,11 @@ const SignUpForm = () => {
             </ul>
           </div>
         )}
-        <div>
+        <div className="form-group">
+          <label htmlFor="contactNumber">Contact Number:</label>
           <input
             type="text"
+            id="contactNumber"
             name="contactNumber"
             placeholder="Contact Number"
             value={formData.contactNumber}
@@ -140,7 +154,7 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="openToTutoring">Open to Tutoring:</label>
           <select
             id="openToTutoring"
