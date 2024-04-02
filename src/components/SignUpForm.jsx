@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import './SignUpForm.css'
+import './SignUpForm.css';
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    major: '',
+    contactNumber: '',
+    openToTutoring: false,
+    course: '', // New state for the course input
+    coursesCompleted: []
   });
 
   const handleChange = (e) => {
@@ -15,6 +21,17 @@ const SignUpForm = () => {
       ...prevState,
       [name]: value
     }));
+  };
+
+  const handleAddCourse = (e) => {
+    e.preventDefault();
+    if (formData.major && formData.course) {
+      setFormData(prevState => ({
+        ...prevState,
+        coursesCompleted: [...prevState.coursesCompleted, formData.course],
+        course: '' // Clear the input field after adding the course
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -26,12 +43,25 @@ const SignUpForm = () => {
   return (
     <div className='sign-up'>
       <form onSubmit={handleSubmit}>
+        <div className="profile-picture">
+          <img src="defaultProfilePic.jpg" alt="Default Profile" />
+        </div>
         <div>
           <input
             type="text"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
+            name="firstName"
+            placeholder="First Name"
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            value={formData.lastName}
             onChange={handleChange}
             required
           />
@@ -65,6 +95,63 @@ const SignUpForm = () => {
             onChange={handleChange}
             required
           />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="major"
+            placeholder="Major"
+            value={formData.major}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="course">Course Completed:</label>
+          <input
+            type="text"
+            id="course"
+            name="course"
+            placeholder="Enter Courses Completed"
+            value={formData.course || ''}
+            onChange={handleChange}
+          />
+          {formData.course && (
+            <button onClick={handleAddCourse}>Add Course</button>
+          )}
+        </div>
+        {formData.coursesCompleted.length > 0 && (
+          <div>
+            <p>Courses Completed:</p>
+            <ul>
+              {formData.coursesCompleted.map((course, index) => (
+                <li key={index}>{course}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <div>
+          <input
+            type="text"
+            name="contactNumber"
+            placeholder="Contact Number"
+            value={formData.contactNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="openToTutoring">Open to Tutoring:</label>
+          <select
+            id="openToTutoring"
+            name="openToTutoring"
+            value={formData.openToTutoring}
+            onChange={handleChange}
+            required
+          >
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
         </div>
         <button type="submit">Sign Up</button>
       </form>

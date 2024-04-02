@@ -17,6 +17,11 @@
   .sign-up div {
     margin-bottom: 20px;
   }
+
+  .profile-picture {
+    text-align: center; /* Center the image */
+    margin-bottom: 20px; /* Add some space below the image */
+}
   
   .sign-up input[type="text"],
   .sign-up input[type="email"],
@@ -26,6 +31,7 @@
     border: 1px solid #c41e3a;
     border-radius: 5px;
     box-sizing: border-box;
+    background-color: #f5f5f5; /* Set background color */
   }
   
   .sign-up button {
