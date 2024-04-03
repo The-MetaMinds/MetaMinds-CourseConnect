@@ -1,34 +1,34 @@
 .department-container {
   display: grid;
-  grid-template-rows: auto; /* One row */
-  grid-template-columns: 20fr 80fr; /* Two columns, first column takes up 30%, second column takes up 70% */
+  grid-template-rows: auto;
+  grid-template-columns: 25% 75%;
   grid-template-areas: "sidebar main";
 }
 
 .side-bar {
-  grid-area: sidebar; /* Assign sidebar to its grid area */
-  background-color: #f0f0f0; /* Light gray background */
+  grid-area: sidebar;
+  background-color: #f0f0f0;
+  padding: 20px;
 }
 
 .main {
-  grid-area: main; /* Assign main content to its grid area */
-  background-color: #e0e0e0; /* Light gray background */
+  grid-area: main;
+  background-color: #e0e0e0;
+  padding: 20px;
 }
 
-/* Additional styling for lists */
 ul {
   list-style-type: none;
   padding: 0;
 }
 
-li {
-  margin: 5px 0;
+.question-container {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
 }
 
 .question {
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .question h3 {
@@ -37,19 +37,24 @@ li {
 }
 
 .question button {
-  background-color: #ff3333; /* Lighter red */
+  background-color: #ff3333;
   color: white;
   border: none;
   padding: 5px 15px;
   cursor: pointer;
 }
 
-.side-bar li {
-  color: white;
-  background-color: #b4312c; /* kind of red*/
-  width: 100%;
+.reply {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
   padding: 10px;
-  border: none;
-  margin-bottom: 5px;
-  cursor: pointer;
+  font-size: 0.9em; /* smaller font size for replies */
+}
+
+.reply p:first-child {
+  margin-top: 0; /* remove top margin for first paragraph in reply */
+}
+
+.reply p:last-child {
+  margin-bottom: 0; /* remove bottom margin for last paragraph in reply */
 }
