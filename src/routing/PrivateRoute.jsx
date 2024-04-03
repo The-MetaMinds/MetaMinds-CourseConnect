@@ -1,6 +1,7 @@
 import React from 'react'
 import useAuth from '../hooks/useAuth'
 import {Outlet, Navigate} from 'react-router-dom'
+import Navbar from '../components/NavBar'
 
 const PrivateRoute = () => {
     const {isAuthenticated} = useAuth()
@@ -9,7 +10,10 @@ const PrivateRoute = () => {
         return <Navigate to='login' />
     }
     else{
-        return <Outlet/>
+        return <>
+            <Navbar />
+            <Outlet/>
+        </> 
     }
 }
 

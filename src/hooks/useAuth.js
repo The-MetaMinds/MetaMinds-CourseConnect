@@ -6,7 +6,7 @@ const useAuth = () => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/users/login', { email, password });
+      const response = await axios.post('https://courseconnect-delta.vercel.app/api/users/login', { email, password });
       const { authToken } = response.data;
       setAuthToken(authToken);
       localStorage.setItem('authToken', authToken);
