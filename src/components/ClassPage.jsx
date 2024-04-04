@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ClassPage.css';
 import { useParams } from "react-router-dom";
+import axios from 'axios';
 
 const formatDate = (date) => {
   const options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
@@ -45,6 +46,7 @@ const ClassPage = () => {
         }
         const data = await response.json();
         setCourses(data);
+        //console.log(data)
       } catch (error) {
         console.error('Error fetching courses:', error);
       }
@@ -65,17 +67,37 @@ const ClassPage = () => {
     }
   };
 
-  const createNewPost = () => {
+  const createNewPost = async () => {
     const newQuestion = prompt("Enter your question:");
     if (newQuestion !== null && newQuestion.trim() !== '') {
       const newPost = {
         id: posts.length + 1,
         title: newQuestion,
         content: '', // Empty content for now
-        username: "Anonymous",
-        timestamp: new Date().toISOString()
+        username: "2yMo1j6CtgC0fGCuf373", //hardcoded for now
+        timestamp: new Date().toISOString(),
+        course : "1VD68JjGxU8hztP3V35c"
       };
       setPosts([newPost, ...posts]);
+
+      try {
+        const response = await axios.post('https://courseconnect-delta.vercel.app/api/posts', newPost);
+        console.log('Post sent successfully:', response.data);
+      }
+      catch (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // Extract error message from the response data
+          console.error('Error while posting:', error.response.data);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.error('Error while posting: No response received');
+        } else {
+          // Something happened in setting up the request that triggered an error
+          console.error('Error while posting:', error.message);
+        }
+      }
+
     }
   };
 
@@ -85,13 +107,13 @@ const ClassPage = () => {
         <h2>Courses</h2>
         <ul>
           {courses.map((course, index) => (
-            <li key={index}>{course.name}</li>
+            <button ><li key={index}>{course.name}</li></button>
           ))}
         </ul>
       </div>
       <div className='main'>
         <h2>Posts</h2>
-        <button onClick={createNewPost}>Create New Post</button>
+        
         <ul>
           {posts.map((post, index) => (
             <Question
@@ -105,8 +127,10 @@ const ClassPage = () => {
               replies={replies.filter(reply => reply.postId === post.id)}
               onReply={handleReply}
             />
+            
           ))}
         </ul>
+        <button onClick={createNewPost}>Create New Post</button>
       </div>
     </div>
   );
