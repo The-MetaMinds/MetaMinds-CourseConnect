@@ -1,0 +1,11 @@
+.navbar-container{
+    position: fixed;
+    top: 0;
+    height: 60px;
+    box-sizing: border-box;
+    z-index: 100
+}
+.main-container{
+    position: relative;
+    top: 60px;
+}

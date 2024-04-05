@@ -67,6 +67,19 @@ const ClassPage = () => {
     }
   };
 
+  const handleClassClick = async (courseId) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/api/posts/${courseId}`);
+      if (!response.data || response.data.length === 0) {
+        throw new Error('No posts found for this course');
+      }
+      setPosts(response.data);
+      console.log('Posts fetched successfully:', response.data);
+    } catch (error) {
+      console.error('Error fetching posts:', error.message);
+    }
+  };
+
   const createNewPost = async () => {
     const newQuestion = prompt("Enter your question:");
     if (newQuestion !== null && newQuestion.trim() !== '') {
@@ -107,7 +120,9 @@ const ClassPage = () => {
         <h2>Courses</h2>
         <ul>
           {courses.map((course, index) => (
-            <button ><li key={index}>{course.name}</li></button>
+            <button onClick={() => handleClassClick(course.id)} key={index}>
+              <li>{course.name}</li>
+            </button>
           ))}
         </ul>
       </div>

@@ -9,6 +9,12 @@
   grid-area: sidebar;
   background-color: #f0f0f0;
   padding: 20px;
+  position:fixed;
+  top: 60px; /*compenssated for navbar*/
+  bottom: 0px;
+  width: 25%;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .main {
