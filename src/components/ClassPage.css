@@ -64,3 +64,13 @@ ul {
 .reply p:last-child {
   margin-bottom: 0; /* remove bottom margin for last paragraph in reply */
 }
+
+
+/*Question Page */
+.textarea, .reply-textarea{
+  width: 100%;
+  min-height: 100px; /* Adjust the minimum height as needed */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+

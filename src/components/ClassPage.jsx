@@ -8,20 +8,43 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString(undefined, options);
 };
 
-const Question = ({ id, title, content, username, timestamp, lastReply, replies, onReply }) => (
+const Question = ({ id, title, content, username, timestamp, lastReply, replies, onReply }) => {
+  const [replyContent, setReplyContent] = useState('');
+  const [showReplyForm, setShowReplyForm] = useState(false);
+
+  const handleReplySubmit = () => {
+    onReply(id, replyContent);
+    setReplyContent('');
+    setShowReplyForm(false);
+  };
+
+  return (
   <div className="question-container">
     <div className="question">
       <h3>{title}</h3>
       <p>{content}</p>
       <p>Posted by {username} on {formatDate(timestamp)}</p>
       {lastReply && <p>Last replied to at {formatDate(lastReply)}</p>}
-      <button onClick={() => onReply(id)}>Reply</button>
-    </div>
-    {replies.map((reply, index) => (
-      <Reply key={index} content={reply.content} username={reply.username} timestamp={reply.timestamp} />
-    ))}
+      {!showReplyForm && <button onClick={() => setShowReplyForm(true)}>Reply</button>}
+        {showReplyForm && (
+          <div>
+            <textarea
+              className="reply-textarea"
+              placeholder="Enter your reply"
+              value={replyContent}
+              onChange={(e) => setReplyContent(e.target.value)}
+            ></textarea>
+            <button onClick={handleReplySubmit}>Submit</button>
+            <button onClick={() => setShowReplyForm(false)}>Cancel</button>
+          </div>
+        )}
+      </div>
+      {replies.map((reply, index) => (
+        <Reply key={index} content={reply.content} username={reply.username} timestamp={reply.timestamp} />
+      ))}
   </div>
-);
+  )
+};
 
 const Reply = ({ content, username, timestamp }) => (
   <div className="reply">
@@ -36,6 +59,9 @@ const ClassPage = () => {
   const [courses, setCourses] = useState([]);
   const [posts, setPosts] = useState([]);
   const [replies, setReplies] = useState([]);
+  const [showNewPostForm, setShowNewPostForm] = useState(false);
+  const [newPostTitle, setNewPostTitle] = useState('');
+  const [newPostContent, setNewPostContent] = useState('');
 
   useEffect(() => {
     const fetchCoursesFromBackend = async () => {
@@ -46,7 +72,6 @@ const ClassPage = () => {
         }
         const data = await response.json();
         setCourses(data);
-        //console.log(data)
       } catch (error) {
         console.error('Error fetching courses:', error);
       }
@@ -54,17 +79,17 @@ const ClassPage = () => {
     fetchCoursesFromBackend();
   }, [departmentID]);
 
-  const handleReply = (postId) => {
-    const replyContent = prompt("Enter your reply:");
-    if (replyContent !== null) {
-      const reply = {
-        content: replyContent,
-        username: "Anonymous",
-        timestamp: new Date().toISOString(),
-        postId: postId
-      };
-      setReplies(prevReplies => [...prevReplies, reply]);
-    }
+  const handleReply = async (postId, replyContent) => {
+    // Simulate adding reply to UI
+    const newReply = {
+      content: replyContent,
+      username: "Anonymous",
+      timestamp: new Date().toISOString(),
+      postId: postId
+    };
+    setReplies(prevReplies => [...prevReplies, newReply]);
+
+    // You can add logic here to send the reply to the backend
   };
 
   const handleClassClick = async (courseId) => {
@@ -74,43 +99,37 @@ const ClassPage = () => {
         throw new Error('No posts found for this course');
       }
       setPosts(response.data);
-      console.log('Posts fetched successfully:', response.data);
     } catch (error) {
       console.error('Error fetching posts:', error.message);
     }
   };
 
   const createNewPost = async () => {
-    const newQuestion = prompt("Enter your question:");
-    if (newQuestion !== null && newQuestion.trim() !== '') {
-      const newPost = {
-        id: posts.length + 1,
-        title: newQuestion,
-        content: '', // Empty content for now
-        username: "2yMo1j6CtgC0fGCuf373", //hardcoded for now
-        timestamp: new Date().toISOString(),
-        course : "1VD68JjGxU8hztP3V35c"
-      };
-      setPosts([newPost, ...posts]);
+    setShowNewPostForm(true);
+  };
 
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (newPostTitle.trim() !== '' && newPostContent.trim() !== '') {
+      const newPost = {
+        title: newPostTitle,
+        content: newPostContent,
+        username: "Anonymous", //hardcoded for now
+        timestamp: new Date().toISOString(),
+        course: "1VD68JjGxU8hztP3V35c" // hardcoded for now
+      };
       try {
         const response = await axios.post('https://courseconnect-delta.vercel.app/api/posts', newPost);
         console.log('Post sent successfully:', response.data);
+        setPosts([response.data, ...posts]);
+        setNewPostTitle('');
+        setNewPostContent('');
+        setShowNewPostForm(false);
+      } catch (error) {
+        console.error('Error while posting:', error.message);
       }
-      catch (error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // Extract error message from the response data
-          console.error('Error while posting:', error.response.data);
-        } else if (error.request) {
-          // The request was made but no response was received
-          console.error('Error while posting: No response received');
-        } else {
-          // Something happened in setting up the request that triggered an error
-          console.error('Error while posting:', error.message);
-        }
-      }
-
+    } else {
+      alert('Please enter a title and content for your post.');
     }
   };
 
@@ -128,7 +147,29 @@ const ClassPage = () => {
       </div>
       <div className='main'>
         <h2>Posts</h2>
-        
+        {!showNewPostForm ? (
+          <button onClick={createNewPost}>Create New Post</button>
+        ) : (
+          <form onSubmit={handleFormSubmit}>
+            <input 
+              type="text" 
+              placeholder="Enter post title (max 20 words)" 
+              value={newPostTitle} 
+              onChange={(e) => setNewPostTitle(e.target.value)} 
+              maxLength="100" // Assuming an average of 5 words per title
+              required
+            />
+            <textarea 
+              className="textarea"
+              placeholder="Enter post content (max 300 words)" 
+              value={newPostContent} 
+              onChange={(e) => setNewPostContent(e.target.value)} 
+              maxLength="1500" // Assuming an average of 5 words per sentence and 30 sentences per post
+              required
+            />
+            <button type="submit">Submit Post</button>
+          </form>
+        )}
         <ul>
           {posts.map((post, index) => (
             <Question
@@ -142,13 +183,12 @@ const ClassPage = () => {
               replies={replies.filter(reply => reply.postId === post.id)}
               onReply={handleReply}
             />
-            
           ))}
         </ul>
-        <button onClick={createNewPost}>Create New Post</button>
       </div>
     </div>
   );
 };
 
 export default ClassPage;
+
