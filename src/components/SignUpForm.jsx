@@ -58,7 +58,7 @@ const SignUpForm = () => {
     }
     // Handle form submission logic here
     try {
-      const response = await axios.post('http://localhost:3000/api/users', formData);
+      const response = await axios.post('https://courseconnect-delta.vercel.app/api/users', formData);
   
       //remove below line cos it leading to breach
       console.log('User registered successfully:', response.data);

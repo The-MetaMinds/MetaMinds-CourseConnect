@@ -69,7 +69,7 @@ const ClassPage = () => {
 
   const handleClassClick = async (courseId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/posts/${courseId}`);
+      const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
       if (!response.data || response.data.length === 0) {
         throw new Error('No posts found for this course');
       }
