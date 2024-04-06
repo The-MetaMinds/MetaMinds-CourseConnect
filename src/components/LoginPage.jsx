@@ -2,6 +2,8 @@
 
 1. Make sure the emails show "Invalid email" if the email is invalid
 2. Make sure the password shows "Wrong password" if the password is wrong
+3. Make sure the api for the login is changed since i changed it the backend
+
 */
 
 

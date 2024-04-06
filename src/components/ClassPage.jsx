@@ -1,3 +1,10 @@
+/*Things to do
+
+1. 
+
+
+*/
+
 import React, { useState, useEffect } from 'react';
 import './ClassPage.css';
 import { useParams } from "react-router-dom";
@@ -92,6 +99,7 @@ const ClassPage = () => {
     // You can add logic here to send the reply to the backend
   };
 
+  /*
   const handleClassClick = async (courseId) => {
     try {
       const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
@@ -103,6 +111,27 @@ const ClassPage = () => {
       console.error('Error fetching posts:', error.message);
     }
   };
+
+  */
+  
+  const handleClassClick = async (courseId) => {
+    try {
+      const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
+      if (!response.data || response.data.length === 0) {
+        throw new Error('No posts found for this course');
+      }
+      setPosts(response.data);
+    } catch (error) {
+      if (error.response && error.response.data.error === "No Posts yet") {
+        setPosts([]); // Clear existing posts
+        console.log('No posts found for this course');
+      } else {
+        console.error('Error fetching posts:', error.message);
+      }
+    }
+  };
+  
+  
 
   const createNewPost = async () => {
     setShowNewPostForm(true);
@@ -171,7 +200,7 @@ const ClassPage = () => {
           </form>
         )}
         <ul>
-          {posts.map((post, index) => (
+          {posts.length === 0 ? <p> No post for this course </p> : posts.map((post, index) => (
             <Question
               key={post.id}
               id={post.id}
