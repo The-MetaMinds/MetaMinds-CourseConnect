@@ -1,6 +1,6 @@
 /*Things to do
 
-1. 
+1. Make it so that when you come to this page for the first time, there is an active class automatically
 
 
 */
@@ -69,6 +69,7 @@ const ClassPage = () => {
   const [showNewPostForm, setShowNewPostForm] = useState(false);
   const [newPostTitle, setNewPostTitle] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
+  const [activeClass, setActiveClass] = useState(null); //working on this
 
   useEffect(() => {
     const fetchCoursesFromBackend = async () => {
@@ -115,12 +116,14 @@ const ClassPage = () => {
   */
   
   const handleClassClick = async (courseId) => {
+    setActiveClass(courseId);
     try {
       const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
       if (!response.data || response.data.length === 0) {
         throw new Error('No posts found for this course');
       }
       setPosts(response.data);
+      
     } catch (error) {
       if (error.response && error.response.data.error === "No Posts yet") {
         setPosts([]); // Clear existing posts
@@ -168,7 +171,11 @@ const ClassPage = () => {
         <h2>Courses</h2>
         <ul>
           {courses.map((course, index) => (
-            <button onClick={() => handleClassClick(course.id)} key={index}>
+              <button
+              onClick={() => handleClassClick(course.id)}
+              key={index}
+              className={activeClass === course.id ? 'active' : ''}
+            >
               <li>{course.name}</li>
             </button>
           ))}

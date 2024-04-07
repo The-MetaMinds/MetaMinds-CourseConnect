@@ -65,6 +65,13 @@ ul {
   margin-bottom: 0; /* remove bottom margin for last paragraph in reply */
 }
 
+.active {
+  background-color: #ffcc00; /* Yellow background */
+  border: 2px solid #ff9900; /* Orange border */
+  color: #333; /* Dark text color */
+  font-weight: bold; /* Bold text */
+}
+
 
 /*Question Page */
 .textarea, .reply-textarea{
