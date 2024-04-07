@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 const setAuthToken = (token) => {
   if (token) {
@@ -13,6 +14,27 @@ const setAuthToken = (token) => {
 
 const useAuth = () => {
   const [authToken, setAuthTokenState] = useState(localStorage.getItem('authToken'));
+
+  useEffect(() => {
+    const validateToken = async () => {
+      if (authToken) {
+        try {
+          // Make a request to validate the token
+          await axios.post('https://courseconnect-delta.vercel.app/api/auth/validate', { authToken });
+          // If the token is valid, set it in Axios defaults and state
+          setAuthToken(authToken);
+          setAuthTokenState(authToken);
+        } catch (error) {
+          // If the token is invalid, log out the user
+          console.error('Invalid token:', error);
+          logout();
+        }
+      }
+    };
+
+    validateToken();
+  });
+  
 
   const login = async (email, password) => {
     try { //change this to auth api
