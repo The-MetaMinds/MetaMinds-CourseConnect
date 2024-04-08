@@ -19,10 +19,12 @@ const useAuth = () => {
     const validateToken = async () => {
       if (authToken) {
         try {
+          // Set the authentication token in Axios defaults
+          setAuthToken(authToken);
+
           // Make a request to validate the token
           await axios.post('https://courseconnect-delta.vercel.app/api/auth/validate', { authToken });
-          // If the token is valid, set it in Axios defaults and state
-          setAuthToken(authToken);
+          // If the token is valid, set it in the state
           setAuthTokenState(authToken);
         } catch (error) {
           // If the token is invalid, log out the user

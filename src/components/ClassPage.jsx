@@ -2,7 +2,6 @@
 
 1. Make it so that when you come to this page for the first time, there is an active class automatically
 
-
 */
 
 import React, { useState, useEffect } from 'react';
