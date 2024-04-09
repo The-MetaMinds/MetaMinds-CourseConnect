@@ -19,9 +19,9 @@
 }
 
 .logo img {
-  width: 80px; /* Keep width the same as before */
+  width: 62px; /* Keep width the same as before */
   height: auto;
-  margin-right: 15px; /* Keep margin the same as before */
+  margin-right: 18px; /* Keep margin the same as before */
 }
 
 .navbar-menu {
@@ -95,6 +95,6 @@
   .navbar-menu li {
     margin: 0;
     text-align: center;
-    margin-bottom: 30px; /* Increase spacing between menu items */
+    margin-bottom: 40px; /* Increase spacing between menu items */
   }
 }
