@@ -120,15 +120,17 @@ const LoginBox = () => {
     e.preventDefault();
     const { email, password } = formData;
 
+    const lowerCaseEmail = email.toLowerCase();
+
     try {
-      await login(email, password);
+      await login(lowerCaseEmail, password);
       // Redirect or perform other actions upon successful login
       navigate('/');
     } catch (error) {
       if (error.response && error.response.status === 401) {
         setErrorMessage('Wrong password');
-      } else if (error.response && error.response.status === 422) {
-        setErrorMessage('Invalid email');
+      } else if (error.response && error.response.status === 404) {
+        setErrorMessage('Email not found');
       } else {
         // Handle other errors
         console.error('Login error:', error);

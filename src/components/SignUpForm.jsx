@@ -24,9 +24,12 @@ const SignUpForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
+    
+
     // Email validation
     if (name === 'email') {
-      if (value.endsWith('@scarletmail.rutgers.edu')) {
+      const lowercaseEmail = value.toLowerCase();
+      if (lowercaseEmail.endsWith('@scarletmail.rutgers.edu')) {
         setErrorMessage('');
       } else {
         setErrorMessage('Please use a scarletmail.rutgers.edu email');
@@ -56,6 +59,9 @@ const SignUpForm = () => {
     if (errorMessage !== '') {
       return;
     }
+
+    formData.email = formData.email.toLowerCase()
+
     // Handle form submission logic here
     try {
       const response = await axios.post('https://courseconnect-delta.vercel.app/api/users', formData);
