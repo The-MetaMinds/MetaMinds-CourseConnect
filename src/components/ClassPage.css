@@ -65,10 +65,13 @@ ul {
   margin-bottom: 0; /* remove bottom margin for last paragraph in reply */
 }
 
+
+
+/*When Clicked on */
 .active {
-  background-color: #ffcc00; /* Yellow background */
-  border: 2px solid #ff9900; /* Orange border */
-  color: #333; /* Dark text color */
+  background-color: #ffcc00; /* Yellow background: #ffcc00 */
+  border: 2px solid #ff9900; /* Orange border: #ff9900 */
+  color: #333;               /* Dark text color: #333 */
   font-weight: bold; /* Bold text */
 }
 
