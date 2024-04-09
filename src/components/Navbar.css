@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 15px; /* Increase padding to move navbar down */
+  padding: 35px 15px; /* Increase padding to move navbar down */
   width: 100%;
   box-sizing: border-box;
   position: relative; /* Add relative positioning to the navbar */
