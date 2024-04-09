@@ -147,7 +147,7 @@ const ClassPage = () => {
         content: newPostContent,
         username: "Anonymous", //hardcoded for now
         timestamp: new Date().toISOString(),
-        course: "1VD68JjGxU8hztP3V35c" // hardcoded for now
+        course: activeClass // hardcoded for now
       };
       try {
         const response = await axios.post('https://courseconnect-delta.vercel.app/api/posts', newPost);

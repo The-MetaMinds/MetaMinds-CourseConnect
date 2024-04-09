@@ -15,12 +15,14 @@ const setAuthToken = (token) => {
 const useAuth = () => {
   const [authToken, setAuthTokenState] = useState(localStorage.getItem('authToken'));
 
+  setAuthToken(authToken);
+
   useEffect(() => {
     const validateToken = async () => {
       if (authToken) {
         try {
           // Set the authentication token in Axios defaults
-          setAuthToken(authToken);
+          
 
           // Make a request to validate the token
           await axios.post('https://courseconnect-delta.vercel.app/api/auth/validate', { authToken });
@@ -33,9 +35,8 @@ const useAuth = () => {
         }
       }
     };
-
     validateToken();
-  });
+  }, [authToken]);
   
 
   const login = async (email, password) => {
