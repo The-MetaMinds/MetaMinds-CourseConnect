@@ -23,6 +23,16 @@ const SignUpForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Email validation
+    if (name === 'email') {
+      if (value.endsWith('@scarletmail.rutgers.edu')) {
+        setErrorMessage('');
+      } else {
+        setErrorMessage('Please use a scarletmail.rutgers.edu email');
+      }
+    }
+
     setFormData(prevState => ({
       ...prevState,
       [name]: value
@@ -42,6 +52,10 @@ const SignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // If email format is incorrect, do not proceed with submission
+    if (errorMessage !== '') {
+      return;
+    }
     // Handle form submission logic here
     try {
       const response = await axios.post('https://courseconnect-delta.vercel.app/api/users', formData);
@@ -208,7 +222,7 @@ const SignUpForm = () => {
             <option value={false}>No</option>
           </select>
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={errorMessage !== ''}>Sign Up</button>
       </form>
     </div>
   );

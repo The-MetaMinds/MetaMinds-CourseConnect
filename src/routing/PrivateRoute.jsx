@@ -1,19 +1,29 @@
 import React from 'react'
 import useAuth from '../hooks/useAuth'
-import {Outlet, Navigate} from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
 import Navbar from '../components/NavBar'
+import "./Layout.css"
+import {jwtDecode} from 'jwt-decode'; // Import jwt_decode from jwt-decode library
 
 const PrivateRoute = () => {
-    const {isAuthenticated} = useAuth()
+    const { authToken, isAuthenticated } = useAuth()
 
-    if (!isAuthenticated()){
+    console.log(authToken)
+
+    // Decode the authentication token to extract user ID
+    const userId = authToken ? jwtDecode(authToken).userId.id : null; 
+
+    if (!isAuthenticated()) {
         return <Navigate to='login' />
-    }
-    else{
-        return <>
-            <Navbar />
-            <Outlet/>
-        </> 
+    } else {
+        return (
+            <>
+                <Navbar className="navbar-container" userId={userId} />
+                <div className="main-container">
+                    <Outlet />
+                </div>
+            </>
+        );
     }
 }
 

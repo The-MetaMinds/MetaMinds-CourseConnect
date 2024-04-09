@@ -9,6 +9,12 @@
   grid-area: sidebar;
   background-color: #f0f0f0;
   padding: 20px;
+  position:fixed;
+  top: 60px; /*compenssated for navbar*/
+  bottom: 0px;
+  width: 25%;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .main {
@@ -58,3 +64,20 @@ ul {
 .reply p:last-child {
   margin-bottom: 0; /* remove bottom margin for last paragraph in reply */
 }
+
+.active {
+  background-color: #ffcc00; /* Yellow background */
+  border: 2px solid #ff9900; /* Orange border */
+  color: #333; /* Dark text color */
+  font-weight: bold; /* Bold text */
+}
+
+
+/*Question Page */
+.textarea, .reply-textarea{
+  width: 100%;
+  min-height: 100px; /* Adjust the minimum height as needed */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+

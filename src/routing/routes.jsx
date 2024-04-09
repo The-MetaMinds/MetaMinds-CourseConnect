@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         element : <PrivateRoute />,
         children :[
             {path : 'class', element : <ClassPage />},
-            {path : 'profile', element : <ProfilePage />},
+            {path : 'profile/:userID', element : <ProfilePage/>},
             {path : 'classpage/:departmentID', element : <ClassPage/>}
 
         ]

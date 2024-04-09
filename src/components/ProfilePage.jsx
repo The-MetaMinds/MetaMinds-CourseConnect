@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProfilePage.css';
+import {useParams} from 'react-router-dom'; 
+import axios from 'axios';
 
 const ProfilePage = () => {
+  const { userID } = useParams();
+
   // Sample user data (replace with actual user data when database is set up)
   const [isEditMode, setIsEditMode] = useState(false);
   const [user, setUser] = useState({
@@ -14,6 +18,29 @@ const ProfilePage = () => {
     coursesCompleted: ['Mathematics', 'Computer Programming', 'Physics'],
     openToTutoring: true
   });
+
+  useEffect( () => {
+    const fetchProfileFromBackend = async () => {
+      try{
+        console.log(axios.defaults.headers.common['x-auth-token']);
+        const response = await axios.get(`https://courseconnect-delta.vercel.app/api/users/${userID}`);
+
+        const userProfile = await response.data
+        setUser(prevUser => ({
+          ...prevUser,
+          firstName: userProfile.firstname,
+          lastName: userProfile.lastname,
+          email: userProfile.email
+        }));
+        
+        
+      }
+      catch(error){
+        console.error('Error fetching courses:', error);
+      }
+    };
+    fetchProfileFromBackend();
+  },[userID]);
 
   const handleEditClick = () => {
     setIsEditMode(true);
@@ -51,7 +78,7 @@ const ProfilePage = () => {
     <div className="profile-container">
       <h2 className="profile-heading">User Profile</h2>
       <div className="profile-picture">
-        <img src="defaultProfilePic.jpg" alt="Default Profile" />
+        <img src={require('../defaultProfilePic.jpg')} alt="Default Profile" />
       </div>
       <div className="profile-info">
         <div className="info-item double-column">
