@@ -39,7 +39,7 @@
 }
 
 .navbar-menu li {
-  margin-left: 30px; /* Increase spacing between menu items */
+  margin-left: 25px; /* Increase spacing between menu items */
 }
 
 .navbar-menu li:first-child {
