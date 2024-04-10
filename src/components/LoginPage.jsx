@@ -127,10 +127,12 @@ const LoginBox = () => {
       // Redirect or perform other actions upon successful login
       navigate('/');
     } catch (error) {
+      // Error Message for Password
       if (error.response && error.response.status === 401) {
-        setErrorMessage('Wrong password');
+        setErrorMessage('Incorrect password.');
+      // Error Message for Email
       } else if (error.response && error.response.status === 404) {
-        setErrorMessage('Email not found');
+        setErrorMessage('The email you entered is not connected to an account.');
       } else {
         // Handle other errors
         console.error('Login error:', error);

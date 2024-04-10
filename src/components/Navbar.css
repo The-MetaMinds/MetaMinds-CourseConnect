@@ -50,7 +50,7 @@
   color: #fff; /* color of menu items: #fff */
   text-decoration: none;
 }
-
+/* When hovering with mouse/ cursor */
 .navbar-menu li a:hover {
   text-decoration: underline;
 }
