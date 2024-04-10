@@ -18,7 +18,6 @@ const HomePage = () => {
         throw new Error('Failed to fetch departments');
       }
       const data = await response.json();
-      console.log(data)
       setdepartments(data); // Assuming the response data is an array of departments
     } catch (error) {
       console.error('Error fetching departments:', error);

@@ -8,8 +8,6 @@ import {jwtDecode} from 'jwt-decode'; // Import jwt_decode from jwt-decode libra
 const PrivateRoute = () => {
     const { authToken, isAuthenticated } = useAuth()
 
-    console.log(authToken)
-
     // Decode the authentication token to extract user ID
     const userId = authToken ? jwtDecode(authToken).userId.id : null; 
 
