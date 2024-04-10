@@ -48,6 +48,10 @@ ul {
   border: none;
   padding: 5px 15px;
   cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+.question button:hover {
+  transform: scale(1.01); /* Increase size on hover */
 }
 
 .reply {
@@ -69,9 +73,9 @@ ul {
 
 /*When Clicked on */
 .active {
-  background-color: #ffcc00; /* Yellow background: #ffcc00 */
-  border: 2px solid #ff9900; /* Orange border: #ff9900 */
-  color: #333;               /* Dark text color: #333 */
+  background-color: #E70000; /* Yellow background: #ffcc00 */
+  border: 2px solid #FFEC2D; /* Orange border: #ff9900 */
+  color: #FFFFFF;               /* Dark text color: #333 */
   font-weight: bold; /* Bold text */
 }
 
@@ -82,5 +86,3 @@ ul {
   min-height: 100px; /* Adjust the minimum height as needed */
   resize: vertical; /* Allow vertical resizing */
 }
-
-
