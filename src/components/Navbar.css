@@ -47,8 +47,12 @@
 }
 
 .navbar-menu li a {
-  color: #fff;
+  color: #fff; /* color of menu items: #fff */
   text-decoration: none;
+}
+
+.navbar-menu li a:hover {
+  text-decoration: underline;
 }
 
 .menu-toggle {
