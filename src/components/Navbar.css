@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 15px; /* Increase padding to move navbar down */
+  padding: 35px 0px; /* Increase padding to move navbar down */
   width: 100%;
   box-sizing: border-box;
   position: relative; /* Add relative positioning to the navbar */
@@ -74,8 +74,9 @@
 
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
-    align-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   .navbar-menu {
