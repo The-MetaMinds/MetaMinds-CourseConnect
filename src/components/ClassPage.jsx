@@ -1,6 +1,8 @@
 /*Things to do
 
 1. Make it so that when you come to this page for the first time, there is an active class automatically
+2. Work on the date of the replies
+3. Work on the profile of each user showing in the post and replies
 
 */
 
@@ -106,7 +108,7 @@ const ClassPage = () => {
     }
   };
   
-  
+  /*
   const handleClassClick = async (courseId) => {
     setActiveClass(courseId);
     try {
@@ -125,7 +127,42 @@ const ClassPage = () => {
       }
     }
   };
+  */
+  const handleClassClick = async (courseId) => {
+    setActiveClass(courseId);
+    try {
+      const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
+      if (!response.data || response.data.length === 0) {
+        throw new Error('No posts found for this course');
+      }
+      setPosts(response.data);
+      console.log(response.data)
   
+      // Fetch replies for each post
+      const postIds = response.data.map(post => post.id);
+      console.log(postIds)
+      const fetchRepliesPromises = postIds.map(async postId => {
+        const repliesResponse = await axios.get(`http://localhost:3000/api/replies/${postId}`);
+        return { postId, replies: repliesResponse.data };
+      });
+      const fetchedReplies = await Promise.all(fetchRepliesPromises);
+      console.log(fetchedReplies);
+  
+      // Update state with fetched replies
+      const repliesMap = fetchedReplies.reduce((map, { postId, replies }) => {
+        map[postId] = replies;
+        return map;
+      }, {});
+      setReplies(repliesMap);
+    } catch (error) {
+      if (error.response && error.response.data.error === "No Posts yet") {
+        setPosts([]); // Clear existing posts
+        console.log('No posts found for this course');
+      } else {
+        console.error('Error fetching posts:', error.message);
+      }
+    }
+  };
   
 
   const createNewPost = async () => {
@@ -207,8 +244,11 @@ const ClassPage = () => {
               content={post.content}
               username={post.username}
               timestamp={post.timestamp}
-              lastReply={(replies.filter(reply => reply.postId === post.id)).length > 0 ? replies.filter(reply => reply.postId === post.id).slice(-1)[0].timestamp : null}
-              replies={replies.filter(reply => reply.postId === post.id)}
+              lastReply={replies[post.id] ? new Date(replies[post.id].reduce((latestReply, reply) => {
+                return latestReply.timestamp > reply.timestamp ? latestReply : reply;
+              }, { timestamp: '' }).timestamp).toLocaleTimeString() : null}
+              
+              replies = {replies[post.id] || []}
               onReply={handleReply}
             />
           ))}
