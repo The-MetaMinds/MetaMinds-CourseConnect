@@ -6,7 +6,7 @@ import "./Layout.css"
 import {jwtDecode} from 'jwt-decode'; // Import jwt_decode from jwt-decode library
 
 const PrivateRoute = () => {
-    const { authToken, isAuthenticated } = useAuth()
+    const { authToken, isAuthenticated, logout } = useAuth()
 
     // Decode the authentication token to extract user ID
     const userId = authToken ? jwtDecode(authToken).userId.id : null; 
@@ -16,7 +16,7 @@ const PrivateRoute = () => {
     } else {
         return (
             <>
-                <Navbar className="navbar-container" userId={userId} />
+                <Navbar className="navbar-container" userId={userId} onLogout={logout} isAuthenticated={isAuthenticated} />
                 <div className="main-container">
                     <Outlet />
                 </div>
