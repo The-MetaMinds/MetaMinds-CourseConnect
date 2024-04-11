@@ -87,32 +87,25 @@ const ClassPage = () => {
   }, [departmentID]);
 
   const handleReply = async (postId, replyContent) => {
-    // Simulate adding reply to UI
-    const newReply = {
-      content: replyContent,
-      username: "Anonymous",
-      timestamp: new Date().toISOString(),
-      postId: postId
-    };
-    setReplies(prevReplies => [...prevReplies, newReply]);
-
-    // You can add logic here to send the reply to the backend
-  };
-
-  /*
-  const handleClassClick = async (courseId) => {
     try {
-      const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
-      if (!response.data || response.data.length === 0) {
-        throw new Error('No posts found for this course');
-      }
-      setPosts(response.data);
+      const newReply = {
+        content: replyContent,
+        userId: "wk1Xl9H90fezpEFzxgWe", // Assuming you have the userId
+        postId: postId,
+        timestamp: new Date().toISOString() // Format timestamp
+      };
+  
+      const response = await axios.post('http://localhost:3000/api/replies', newReply);
+      console.log('Reply posted successfully:', response.data);
+  
+      // Update UI to show the new reply
+      const updatedReplies = [...replies, response.data];
+      setReplies(updatedReplies);
     } catch (error) {
-      console.error('Error fetching posts:', error.message);
+      console.error('Error posting reply:', error.message);
     }
   };
-
-  */
+  
   
   const handleClassClick = async (courseId) => {
     setActiveClass(courseId);
