@@ -19,6 +19,8 @@ const SignUpForm = () => {
     coursesCompleted: []
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
@@ -40,6 +42,10 @@ const SignUpForm = () => {
       ...prevState,
       [name]: value
     }));
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevState => !prevState);
   };
 
   const handleAddCourse = (e) => {
@@ -142,20 +148,29 @@ const SignUpForm = () => {
         </div>
         {errorMessage && <p style={{ color: 'red', marginTop: 0}}>{errorMessage}</p>}
 
-        <div className="form-group" >
+        <div className="form-group">
           <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password-input">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <img
+              src="eyesymbol.png"
+              alt="Show Password"
+              className="password-toggle"
+              onClick={togglePasswordVisibility}
+            />
+          </div>
         </div>
         <div className="form-group" style={{ marginBottom: (formData.confirmPassword !== '' && formData.password !== formData.confirmPassword)  ? '0' : '20px' }}>
           <label htmlFor="confirmPassword">Confirm Password:</label>
+          <div className="password-input">
           <input
             type="password"
             id="confirmPassword"
@@ -165,6 +180,13 @@ const SignUpForm = () => {
             onChange={handleChange}
             required
           />
+            <img
+              src="eyesymbol.png"
+              alt="Show Password"
+              className="password-toggle"
+              onClick={togglePasswordVisibility}
+            />
+          </div>
         </div>
         {formData.confirmPassword !== '' && formData.password !== formData.confirmPassword && <p style={{ color: 'red', paddingTop: 0}}>password don't match</p>}
         <div className="form-group">

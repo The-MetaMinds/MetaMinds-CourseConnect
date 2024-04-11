@@ -22,17 +22,44 @@
     text-align: center; /* Center the image */
     margin-bottom: 20px; /* Add some space below the image */
 }
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 30px; /* Space for the button */
+}
+
+.password-toggle {
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  width: 30px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Add transition for smooth appearance */
+}
+
+.password-input:hover .password-toggle {
+  opacity: 1; /* Show the symbol on hover */
+}
   
-  .sign-up input[type="text"],
-  .sign-up input[type="email"],
-  .sign-up input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #c41e3a;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #f5f5f5; /* Set background color */
-  }
+.sign-up input[type="text"],
+.sign-up input[type="email"],
+.sign-up input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c41e3a;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #f5f5f5; /* Set background color */
+}
 
   /* Make labels bold */
 .sign-up label {
