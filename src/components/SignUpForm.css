@@ -9,18 +9,18 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .sign-up form {
-    display: flex;
-    flex-direction: column;
-  }
+.sign-up form {
+  display: flex;
+  flex-direction: column;
+}
   
-  .sign-up div {
-    margin-bottom: 20px;
-  }
+.sign-up div {
+  margin-bottom: 20px;
+}
 
-  .profile-picture {
-    text-align: center; /* Center the image */
-    margin-bottom: 20px; /* Add some space below the image */
+.profile-picture {
+  text-align: center; /* Center the image */
+  margin-bottom: 20px; /* Add some space below the image */
 }
 
 .password-input {
@@ -64,17 +64,17 @@
   /* Make labels bold */
 .sign-up label {
   font-weight: bold;
-  }
+}
   
-  .sign-up button {
-    background-color: #c41e3a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+.sign-up button {
+  background-color: #c41e3a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
   
-  .sign-up button:hover {
-    background-color: #a11b2d;
-  }
+.sign-up button:hover {
+  background-color: #a11b2d;
+}
