@@ -97,7 +97,7 @@ const ClassPage = () => {
         timestamp: new Date().toISOString() // Format timestamp
       };
   
-      const response = await axios.post('http://localhost:3000/api/replies', newReply);
+      const response = await axios.post('https://courseconnect-delta.vercel.app/api/replies', newReply);
       console.log('Reply posted successfully:', response.data);
   
       // Update UI to show the new reply
@@ -142,7 +142,7 @@ const ClassPage = () => {
       const postIds = response.data.map(post => post.id);
       console.log(postIds)
       const fetchRepliesPromises = postIds.map(async postId => {
-        const repliesResponse = await axios.get(`http://localhost:3000/api/replies/${postId}`);
+        const repliesResponse = await axios.get(`https://courseconnect-delta.vercel.app/api/replies/${postId}`);
         return { postId, replies: repliesResponse.data };
       });
       const fetchedReplies = await Promise.all(fetchRepliesPromises);
