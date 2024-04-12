@@ -7,6 +7,7 @@ import ProfilePage from "../components/ProfilePage";
 import Layout from "./Layout";
 import HomePage from "../components/HomePage";
 import PrivateRoute from "./PrivateRoute";
+import LoginSignupRoute from "./LoginSignupRoute";
 
 
 const router = createBrowserRouter([
@@ -14,10 +15,16 @@ const router = createBrowserRouter([
         path : '/', 
         element : <Layout />,
         children: [
-            {index : true, element : <HomePage />},
+            {index : true, element : <HomePage />}
+        ]
+    },
+    {
+        element : <LoginSignupRoute />,
+        children: [
             {path : 'registration', element :  <Registration />},
             {path : 'login', element : <LoginPage />},
         ]
+
     },
     {
         element : <PrivateRoute />,
