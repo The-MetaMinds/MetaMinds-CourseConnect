@@ -31,8 +31,9 @@ const router = createBrowserRouter([
         children :[
             {path : 'class', element : <ClassPage />},
             {path : 'profile/:userID', element : <ProfilePage/>},
-            {path : 'classpage/:departmentID', element : <ClassPage/>}
-
+            {path : 'classpage/:departmentID', 
+                element : <ClassPage />
+            }
         ]
     }
     

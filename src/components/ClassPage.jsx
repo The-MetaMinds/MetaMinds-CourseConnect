@@ -10,6 +10,8 @@ import React, { useState, useEffect } from 'react';
 import './ClassPage.css';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import useAuth from '../hooks/useAuth';
+import { jwtDecode } from 'jwt-decode';
 
 const formatDate = (date) => {
   const options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
@@ -48,7 +50,7 @@ const Question = ({ id, title, content, username, timestamp, lastReply, replies,
         )}
       </div>
       {replies.map((reply, index) => (
-        <Reply key={index} content={reply.content} username={reply.username} timestamp={reply.timestamp} />
+        <Reply key={index} content={reply.content} username={reply.userId} timestamp={reply.timestamp} />
       ))}
   </div>
   )
@@ -62,7 +64,13 @@ const Reply = ({ content, username, timestamp }) => (
 );
 
 const ClassPage = () => {
+
+  const { authToken} = useAuth()
+
+  // Decode the authentication token to extract user ID
+  const userId = authToken ? jwtDecode(authToken).userId.id : null; 
   const { departmentID } = useParams();
+
 
   const [courses, setCourses] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -92,7 +100,7 @@ const ClassPage = () => {
     try {
       const newReply = {
         content: replyContent,
-        userId: "wk1Xl9H90fezpEFzxgWe", // Assuming you have the userId
+        userId: userId, // Assuming you have the userId
         postId: postId,
         timestamp: new Date().toISOString() // Format timestamp
       };
@@ -108,26 +116,7 @@ const ClassPage = () => {
     }
   };
   
-  /*
-  const handleClassClick = async (courseId) => {
-    setActiveClass(courseId);
-    try {
-      const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
-      if (!response.data || response.data.length === 0) {
-        throw new Error('No posts found for this course');
-      }
-      setPosts(response.data);
-      
-    } catch (error) {
-      if (error.response && error.response.data.error === "No Posts yet") {
-        setPosts([]); // Clear existing posts
-        console.log('No posts found for this course');
-      } else {
-        console.error('Error fetching posts:', error.message);
-      }
-    }
-  };
-  */
+
   const handleClassClick = async (courseId) => {
     setActiveClass(courseId);
     try {
@@ -175,7 +164,7 @@ const ClassPage = () => {
       const newPost = {
         title: newPostTitle,
         content: newPostContent,
-        username: "Anonymous", //hardcoded for now
+        username: userId,
         timestamp: new Date().toISOString(),
         course: activeClass // hardcoded for now
       };
@@ -242,7 +231,7 @@ const ClassPage = () => {
               id={post.id}
               title={post.title}
               content={post.content}
-              username={post.username}
+              username={post.userId}
               timestamp={post.timestamp}
               lastReply={replies[post.id] ? new Date(replies[post.id].reduce((latestReply, reply) => {
                 return latestReply.timestamp > reply.timestamp ? latestReply : reply;

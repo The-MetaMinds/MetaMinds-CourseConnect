@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import './ProfilePage.css';
 import { useParams } from 'react-router-dom';

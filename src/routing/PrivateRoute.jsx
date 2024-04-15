@@ -18,7 +18,7 @@ const PrivateRoute = () => {
             <>
                 <Navbar className="navbar-container" userId={userId} onLogout={logout} isAuthenticated={isAuthenticated} />
                 <div className="main-container">
-                    <Outlet />
+                    <Outlet userId={userId}/>
                 </div>
             </>
         );
