@@ -125,11 +125,9 @@ const ClassPage = () => {
         throw new Error('No posts found for this course');
       }
       setPosts(response.data);
-      console.log(response.data)
   
       // Fetch replies for each post
       const postIds = response.data.map(post => post.id);
-      console.log(postIds)
       const fetchRepliesPromises = postIds.map(async postId => {
         const repliesResponse = await axios.get(`https://courseconnect-delta.vercel.app/api/replies/${postId}`);
         return { postId, replies: repliesResponse.data };
@@ -231,7 +229,7 @@ const ClassPage = () => {
               id={post.id}
               title={post.title}
               content={post.content}
-              username={post.userId}
+              username={post.username}
               timestamp={post.timestamp}
               lastReply={replies[post.id] ? new Date(replies[post.id].reduce((latestReply, reply) => {
                 return latestReply.timestamp > reply.timestamp ? latestReply : reply;
