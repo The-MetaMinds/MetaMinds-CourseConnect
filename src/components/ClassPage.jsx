@@ -50,7 +50,7 @@ const Question = ({ id, title, content, username, timestamp, lastReply, replies,
         )}
       </div>
       {replies.map((reply, index) => (
-        <Reply key={index} content={reply.content} username={reply.userId} timestamp={reply.timestamp} />
+        <Reply key={index} content={reply.content} username={reply.username} timestamp={reply.timestamp} />
       ))}
   </div>
   )
@@ -129,7 +129,7 @@ const ClassPage = () => {
       // Fetch replies for each post
       const postIds = response.data.map(post => post.id);
       const fetchRepliesPromises = postIds.map(async postId => {
-        const repliesResponse = await axios.get(`https://courseconnect-delta.vercel.app/api/replies/${postId}`);
+        const repliesResponse = await axios.get(`http://localhost:3000/api/replies/${postId}`);
         return { postId, replies: repliesResponse.data };
       });
       const fetchedReplies = await Promise.all(fetchRepliesPromises);
