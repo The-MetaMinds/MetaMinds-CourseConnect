@@ -13,7 +13,8 @@ const ProfilePage = () => {
     major: '',
     contactNumber: '',
     coursesCompleted: [],
-    openToTutoring: true
+    openToTutoring: true,
+    image: ''
   });
 
   useEffect(() => {
@@ -37,7 +38,8 @@ const ProfilePage = () => {
           major: userProfile.major,
           contactNumber: userProfile.contactNumber,
           openToTutoring: userProfile.openToTutoring,
-          coursesCompleted: courses
+          coursesCompleted: courses,
+          image: userProfile.image 
         });
       } catch (error) {
         console.error('Error fetching courses:', error);
@@ -52,7 +54,8 @@ const ProfilePage = () => {
 
       <h2 className="profile-heading">User Profile</h2>
       <div className="profile-picture">
-        <img src={require('../defaultProfilePic.jpg')} alt="Default Profile" />
+      
+        <img src={user.image ? user.image : require('../defaultProfilePic.jpg')} alt="Default Profile" />
       </div>
       <div className="profile-info">
         <div className="info-item double-column">
