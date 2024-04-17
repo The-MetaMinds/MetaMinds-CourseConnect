@@ -24,6 +24,7 @@ const SignUpForm = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [classes, setClasses] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
@@ -91,7 +92,11 @@ const SignUpForm = () => {
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(prevState => !prevState);
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   const handleImageChange = (e) => {
@@ -233,7 +238,7 @@ const SignUpForm = () => {
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <div className="password-input">
           <input
-            type="password"
+            type={showConfirmPassword ? "text" : "password"}
             id="confirmPassword"
             name="confirmPassword"
             placeholder="Confirm Password"
@@ -245,11 +250,11 @@ const SignUpForm = () => {
               src="eyesymbol.png"
               alt="Show Password"
               className="password-toggle"
-              onClick={togglePasswordVisibility}
+              onClick={toggleConfirmPasswordVisibility}
             />
           </div>
+          {formData.confirmPassword !== '' && formData.password !== formData.confirmPassword && <p style={{ color: 'red', paddingTop: 0}}>Passwords don't match</p>}
         </div>
-        {formData.confirmPassword !== '' && formData.password !== formData.confirmPassword && <p style={{ color: 'red', paddingTop: 0}}>password don't match</p>}
         <div className="form-group">
           <label htmlFor="major">Major:</label>
           <input
