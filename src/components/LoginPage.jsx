@@ -58,7 +58,6 @@ const LoginBox = () => {
   return (
     <div className="login-box">
       <div className="options">
-        <button className="google-btn">Sign In with Google</button>
         <Link to="/registration"><button className="signup-btn">Sign Up</button></Link>
       </div>
       <h2>Login</h2>
