@@ -8,7 +8,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './ClassPage.css';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
 import useAuth from '../hooks/useAuth';
 import { jwtDecode } from 'jwt-decode';
@@ -18,7 +18,7 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString(undefined, options);
 };
 
-const Question = ({ id, title, content, username, timestamp, lastReply, replies, onReply }) => {
+const Question = ({ id, title, content, user, timestamp, lastReply, replies, onReply }) => {
   const [replyContent, setReplyContent] = useState('');
   const [showReplyForm, setShowReplyForm] = useState(false);
 
@@ -33,7 +33,22 @@ const Question = ({ id, title, content, username, timestamp, lastReply, replies,
     <div className="question">
       <h3>{title}</h3>
       <p>{content}</p>
-      <p>Posted by {username} on {formatDate(timestamp)}</p>
+
+
+      <div className="user-info">
+          {user && (
+            <Link to={`/profile/${user.userId}`} className="user-link">
+              <img src={user.image ? user.image : require('../defaultProfilePic.jpg')} alt={`${user.firstname} ${user.lastname}`} className="profile-pic" />
+              {`${user.firstname}`}
+            </Link>
+          )}
+          {!user && <span>Unknown user</span>}
+      </div>
+      <p>Posted on {formatDate(timestamp)}</p>
+
+      {/*}
+      <p>Posted by {user ? <Link to={`/profile/${user.userId}`}>{user.firstname}</Link>: 'unknown user'} on {formatDate(timestamp)}</p>
+       */}
       {lastReply && <p>Last replied to at {formatDate(lastReply)}</p>}
       {!showReplyForm && <button onClick={() => setShowReplyForm(true)}>Reply</button>}
         {showReplyForm && (
@@ -121,6 +136,7 @@ const ClassPage = () => {
     setActiveClass(courseId);
     try {
       const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
+      console.log(response)
       if (!response.data || response.data.length === 0) {
         throw new Error('No posts found for this course');
       }
@@ -229,7 +245,7 @@ const ClassPage = () => {
               id={post.id}
               title={post.title}
               content={post.content}
-              username={post.username}
+              user={post.user}//could be empty object
               timestamp={post.timestamp}
               lastReply={replies[post.id] ? new Date(replies[post.id].reduce((latestReply, reply) => {
                 return latestReply.timestamp > reply.timestamp ? latestReply : reply;
