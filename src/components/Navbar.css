@@ -19,11 +19,12 @@
 }
 
 .logo img {
-  width: 200px; /* Keep width the same as before */
+  width: 66px; /* Keep width the same as before: width: 100px; */
   height: auto;
-  margin-right: 20px; /* Keep margin the same as before */
+  margin-right: 60px; /* Keep margin the same as before */
+  margin-left: 20px; /* Keep margin the same as before */
+  margin-bottom: 10px; /* Keep margin the same as before */
  
-
 }
 
 .navbar-menu {
