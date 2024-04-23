@@ -335,17 +335,17 @@ const SignUpForm = () => {
         {classes && classes.length > 0 && (
           <div className="form-group">
             <label>Classes:</label>
-            <ul>
+            <div className="classes-container">
               {classes.map(cls => (
-                <li
-                  key={cls.id}
-                  onClick={() => handleClassClick(cls)}
-                  style={{ color: allSelectedCourses.some(course => course.id === cls.id) ? 'blue' : 'black', cursor: 'pointer' }}
-                >
-                  {cls.name}
-                </li>
+               <button
+               key={cls.id}
+               onClick={() => handleClassClick(cls)}
+               className={`class-button ${allSelectedCourses.some(course => course.id === cls.id) ? 'selected' : ''}`}
+             >
+               {cls.name}
+             </button>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 

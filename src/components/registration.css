@@ -1,38 +1,53 @@
 /* registration.css */
 
 .registration-container {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    max-width: 600px; /* Set maximum width */
-    margin: 0 auto; /* Center horizontally */
-    border: 2px solid red; /* Changed border style */
-    background-color: rgb(255, 0, 0); /* Changed background color */
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Full width */
+  margin: 0 auto; /* Center horizontally */
+  border: none; /* No border */
+  background-color: transparent; /* Transparent background */
+  padding: 1rem; /* Padding around the content */
+}
+
+.registration-header {
+  color: #cc0033; /* Rutgers red color for the text */
+  background-color: transparent; /* No background color */
+  margin: 0; /* No margin */
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Bold font weight */
+  padding: 0.5rem 0; /* Padding top and bottom */
+  font-size: 2.5rem; /* Larger font size */
+  border-radius: 0; /* No rounded corners */
+  text-decoration: none; /* No underline */
+}
+
+.registration-content {
+  background-color: #fff; /* White background for the content */
+  width: 100%; /* Full width */
+  padding: 1rem; /* Padding inside the content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Style inputs to match the design */
+input[type="text"], input[type="email"], input[type="password"] {
+  font-size: 1rem; /* Font size for readability */
+  border: 1px solid #ced4da; /* Subtle border color */
+  border-radius: 5px; /* Rounded corners for the inputs */
+  padding: 0.75rem; /* Comfortable padding inside inputs */
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  .registration-container {
+    padding: 0.5rem; /* Adjust padding for smaller screens */
   }
-  
+
   .registration-header {
-    color: black;
-    margin: 0.5rem 0; /* Adjusted vertical margin */
-    text-align: center; /* Centered the text */
-    font-weight: bold; /* Corrected typo in font-weight */
-    padding: 1rem; /* Increased padding */
-    font-size: 25px; /* Increased font size */
-    border-radius: 20px 20px 0 0; /* Rounded corners for header */
-    text-decoration: underline;
+    font-size: 1.75rem; /* Adjust font size for smaller screens */
   }
-  
-  .registration-content {
-    flex: 1;
-    background-color: white; /* Changed background color */
-    width: 100%;
-    border-radius: 20px 20px 0 0; /* Adjusted border-radius */
+
+  input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
   }
-  
-  /* Media Query for responsiveness */
-  @media (max-width: 768px) {
-    .registration-container {
-      width: 90%; /* Adjusted width for smaller screens */
-      padding: 10px; /* Adjusted padding */
-    }
-  }
-  
+}

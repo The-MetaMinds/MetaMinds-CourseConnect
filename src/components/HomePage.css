@@ -1,19 +1,23 @@
 /* HomePage.css */
 .homepage-container {
-    padding: 20px;
+    padding: 50px;
   }
   
   .departments-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    padding-top: 80px;
   }
   
   .department-button {
     font-size: 24px;
-    background-color: rgb(255, 50, 50);
-    color: black;
-    width: 190px;
+    background-color: #cc0033;
+    color: white;
+    border: none; /* No border for a cleaner look */
+  border-radius: 20px; /* Slight roundness to buttons */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 210px;
     height: 100px;
     margin-right: 20px;
     margin-bottom: 20px;

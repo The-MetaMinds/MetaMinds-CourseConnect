@@ -73,8 +73,28 @@
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  margin-bottom: 5px; /*Ensure spacing between buttons */
 }
   
 .sign-up button:hover {
   background-color: #a11b2d;
+}
+
+.class-button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.class-button.selected{
+  border-color: #000000b8;
+  background-color: #000000b8;
+  color: white;
+}
+
+.classes-container {
+  display: flex;
+  flex-wrap: wrap
 }

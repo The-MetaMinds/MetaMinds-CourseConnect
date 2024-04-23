@@ -1,5 +1,5 @@
 .navbar-container {
-  background-color: red;
+  background-color: #cc0033;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,18 +12,18 @@
 .logo {
   color: #fff;
   text-decoration: none;
-  font-size: 2.5rem; /* Keep font size the same as before */
+  font-size: 3rem; /* Keep font size the same as before */
   display: flex;
   align-items: center;
   margin-top: 10px; /* Move logo down */
 }
 
 .logo img {
-  width: 63px; /* Keep width the same as before */
+  width: 200px; /* Keep width the same as before */
   height: auto;
   margin-right: 20px; /* Keep margin the same as before */
-  margin-left: 20px;
-  margin-bottom: 10px;
+ 
+
 }
 
 .navbar-menu {
