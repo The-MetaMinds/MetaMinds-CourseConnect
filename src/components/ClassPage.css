@@ -73,8 +73,8 @@ ul {
 
 /*When Clicked on */
 .active {
-  background-color: #E70000; /* Yellow background: #ffcc00 */
-  border: 2px solid #FFEC2D; /* Orange border: #ff9900 */
+  background-color: #cc0033; /* Yellow background: #ffcc00 */
+  border: 2px solid #000000; /* Orange border: #ff9900 */
   color: #FFFFFF;               /* Dark text color: #333 */
   font-weight: bold; /* Bold text */
 }
