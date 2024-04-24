@@ -19,7 +19,7 @@
 }
 
 .logo img {
-  width: 66px; /* Keep width the same as before: width: 100px; */
+  width: 68px; /* Keep width the same as before: width: 100px; */
   height: auto;
   margin-right: 60px; /* Keep margin the same as before */
   margin-left: 20px; /* Keep margin the same as before */
@@ -40,7 +40,8 @@
 }
 
 .navbar-menu li {
-  margin-left: 25px; /* Increase spacing between menu items */
+  margin-left: 10px; /* Increase spacing between menu items: margin-left: 25px; */
+  margin-right: 20px;  /*REMOVE LINE WHEN DONE*/
 }
 
 .navbar-menu li:first-child {
