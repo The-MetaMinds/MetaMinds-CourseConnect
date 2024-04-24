@@ -22,6 +22,8 @@ const LoginBox = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,6 +57,10 @@ const LoginBox = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="login-box">
       <div className="options">
@@ -64,8 +70,21 @@ const LoginBox = () => {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <input onChange={handleChange} type="text" name="email" value={formData.email} placeholder="ScarletMail" />
-        <input onChange={handleChange} type="password" name="password" value={formData.password} placeholder="Password" />
-        <button type='submit'>Sign In</button>
+        <div className="password-input">
+          <input
+            onChange={handleChange}
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={formData.password}
+            placeholder="Password"
+          />
+          <img
+            src="eyesymbol.png"
+            alt="Show Password"
+            className="password-toggle"
+            onClick={togglePasswordVisibility}
+          />
+        </div>        <button type='submit'>Sign In</button>
       </form>
     </div>
   );

@@ -67,3 +67,30 @@ button:hover {
     max-width: 400px; /* On larger screens, limit the max width */
   }
 }
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 30px; /* Space for the button */
+}
+
+.password-toggle {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  width: 30px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Add transition for smooth appearance */
+}
+
+.password-input:hover .password-toggle {
+  opacity: 1; /* Show the symbol on hover */
+}
