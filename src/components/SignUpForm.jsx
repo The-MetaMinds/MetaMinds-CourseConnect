@@ -3,6 +3,7 @@ import './SignUpForm.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
 const SignUpForm = () => {
   const navigate = useNavigate();
 
@@ -279,40 +280,15 @@ const SignUpForm = () => {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="openToTutoring">Open to Tutoring:</label>
-          <select
-            id="openToTutoring"
-            name="openToTutoring"
-            value={formData.openToTutoring}
-            onChange={handleChange}
-            required
-          >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="image">Profile Picture:</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-        </div>
 
         <div className="form-group">
           <h3>Course Completed:</h3>
-          <ul>
+          <div className="courses-container">
             {allSelectedCourses.map(course => (
-              <li key={course.id}>{course.name}</li>
+              <div key={course.id} className="course">{course.name}</div>
             ))}
-          </ul>
+          </div>
         </div>
-
-        {/* ... (rest of the form fields remain unchanged) */}
 
         <div className="form-group">
           <label htmlFor="department">Department:</label>
@@ -338,6 +314,7 @@ const SignUpForm = () => {
             <div className="classes-container">
               {classes.map(cls => (
                <button
+               type="button"
                key={cls.id}
                onClick={() => handleClassClick(cls)}
                className={`class-button ${allSelectedCourses.some(course => course.id === cls.id) ? 'selected' : ''}`}
@@ -348,6 +325,31 @@ const SignUpForm = () => {
             </div>
           </div>
         )}
+
+<div className="form-group">
+          <label htmlFor="openToTutoring">Open to Tutoring:</label>
+          <select
+            id="openToTutoring"
+            name="openToTutoring"
+            value={formData.openToTutoring}
+            onChange={handleChange}
+            required
+          >
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">Profile Picture:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+        </div>
+
 
         <button type="submit" disabled={errorMessage !== ''}>Sign Up</button>
       </form>

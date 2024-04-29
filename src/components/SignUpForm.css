@@ -81,20 +81,45 @@
 }
 
 .class-button {
-  padding: 10px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  cursor: pointer;
-}
-
-.class-button.selected{
-  border-color: #000000b8;
-  background-color: #000000b8;
+  padding: 10px 20px;
+  background-color: darkred; /* Default dark red */
   color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.classes-container {
-  display: flex;
-  flex-wrap: wrap
+.class-button.selected{ 
+  background-color: red; 
 }
+
+.class-button.selected:hover{ 
+  background-color: #ff3333; 
+}
+
+.classes-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+
+/* for selected courses */
+.courses-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 10px;
+}
+
+.course {
+  padding: 10px;
+  background-color: darkred;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+

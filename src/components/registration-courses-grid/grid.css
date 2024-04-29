@@ -1,0 +1,41 @@
+.class-list-container {
+    margin-top: 20px;
+}
+  
+.class-list-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: red;
+}
+  
+.class-list-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+  
+.class-button {
+    padding: 10px 20px;
+    background-color: darkred; /* Default dark red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.class-button.selected {
+    background-color: red; /* Bright red when selected */
+}
+  
+@media screen and (max-width: 768px) {
+    .class-list-buttons {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+  
+    .class-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
