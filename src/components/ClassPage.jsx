@@ -94,6 +94,8 @@ const ClassPage = () => {
   const [newPostTitle, setNewPostTitle] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
   const [activeClass, setActiveClass] = useState(null); //working on this
+  const [dropdownVisible, setDropdownVisible ] = useState(false);
+
 
   useEffect(() => {
     const fetchCoursesFromBackend = async () => {
@@ -132,8 +134,9 @@ const ClassPage = () => {
   };
   
 
-  const handleClassClick = async (courseId) => {
-    setActiveClass(courseId);
+  const handleClassClick = async (course) => {
+    const courseId = course.id;
+    setActiveClass(course);
     try {
       const response = await axios.get(`https://courseconnect-delta.vercel.app/api/posts/${courseId}`);
       console.log(response)
@@ -180,7 +183,7 @@ const ClassPage = () => {
         content: newPostContent,
         username: userId,
         timestamp: new Date().toISOString(),
-        course: activeClass // hardcoded for now
+        course: activeClass.id 
       };
       try {
         const response = await axios.post('https://courseconnect-delta.vercel.app/api/posts', newPost);
@@ -197,14 +200,26 @@ const ClassPage = () => {
     }
   };
 
+
+  const toggleDropdown = () => {
+    setDropdownVisible((prevVisible) => !prevVisible);
+  };
+
+  // Function to handle course selection from the dropdown menu
+  const handleCourseSelection = (course) => {
+    handleClassClick(course); // Function to load posts for the selected course
+    setDropdownVisible(false); // Hide the dropdown menu after selection
+  };
+ 
   return (
     <div className="department-container">
+
       <div className="side-bar">
         <h2>Courses</h2>
         <ul>
           {courses.map((course, index) => (
               <button
-              onClick={() => handleClassClick(course.id)}
+              onClick={() => handleClassClick(course)}
               key={index}
               className={activeClass === course.id ? 'active' : ''}
             >
@@ -214,6 +229,20 @@ const ClassPage = () => {
         </ul>
       </div>
       <div className='main'>
+
+        <div className="dropdown">
+        <button className="dropbtn" onClick={toggleDropdown}>{activeClass ? activeClass.name : 'Select Course'}<span className="dropdown-icon">&#9660;</span></button>
+          {dropdownVisible && (
+            <div className="dropdown-content">
+              {courses.map((course) => (
+                <button key={course.id} onClick={() => handleCourseSelection(course)}>
+                  {course.name}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
         <h2>Posts</h2>
         {!showNewPostForm ? (
           <button onClick={createNewPost}>Create New Post</button>

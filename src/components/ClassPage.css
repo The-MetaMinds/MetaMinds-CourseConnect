@@ -6,6 +6,7 @@
 }
 
 .side-bar {
+  display: block;
   grid-area: sidebar;
   background-color: #f0f0f0;
   padding: 20px;
@@ -112,5 +113,75 @@ ul {
 
 .user-link:hover {
   text-decoration: underline; /* Add underline on hover */
+}
+
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: none;
+}
+
+.dropdown-icon {
+  margin-left : 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .department-container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto; /* Change to auto for single column layout */
+    grid-template-areas: "main"; /* Only main area on smaller screens */
+  }
+
+  .side-bar {
+    display: none; /* Hide sidebar on smaller screens */
+  }
+
+  .dropdown {
+    display: inline-block; /* Show dropdown button on smaller screens */
+  }
+
+  /* Dropdown Button */
+  .dropbtn {
+    background-color: #721212;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content button:hover {
+    background-color: #ddd;
+  }
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  
+
 }
 
