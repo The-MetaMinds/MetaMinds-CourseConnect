@@ -4,6 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
 import router from './routing/routes';
+import UserProvider from './contexts/UserProvider';
+import { ChakraProvider } from '@chakra-ui/react'
 // Import the functions you need from the SDKs you need\
 
 
@@ -11,7 +13,12 @@ import router from './routing/routes';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <UserProvider>
+      <ChakraProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </ChakraProvider>
+    </UserProvider>
+
   </React.StrictMode>
 );
 

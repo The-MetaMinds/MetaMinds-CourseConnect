@@ -1,22 +1,31 @@
 import Navbar from "../components/NavBar";
 import { Outlet } from "react-router-dom";
-import "./Layout.css"
+import "./Layout.css";
+import { useUser } from "../contexts/UserProvider";
 
+const LoginSignupRoute = () => {
+  const { auth } = useUser();
 
-const LoginSignupRoute = () => { 
-
+  /*
     const isAuthenticated = () => {
         return false;
     }
+    */
 
-    return (
-        <>
-            <Navbar className="navbar-container" userId={null} isAuthenticated={isAuthenticated} />
-            <div className="main-container">
-                <Outlet/>
-            </div>
-        </>
-    );
-}
+  const isAuthenticated = auth.isAuthenticated;
 
-export default LoginSignupRoute
+  return (
+    <>
+      <Navbar
+        className="navbar-container"
+        userId={null}
+        isAuthenticated={isAuthenticated}
+      />
+      <div className="main-container">
+        <Outlet />
+      </div>
+    </>
+  );
+};
+
+export default LoginSignupRoute;

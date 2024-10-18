@@ -8,6 +8,7 @@ import Layout from "./Layout";
 import HomePage from "../components/HomePage";
 import PrivateRoute from "./PrivateRoute";
 import LoginSignupRoute from "./LoginSignupRoute";
+import ChatPage from "../components/ChatPage";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,9 @@ const router = createBrowserRouter([
             {path : 'profile/:userID', element : <ProfilePage/>},
             {path : 'classpage/:departmentID', 
                 element : <ClassPage />
+            },
+            {path : 'chat', 
+                element : <ChatPage />
             }
         ]
     }
